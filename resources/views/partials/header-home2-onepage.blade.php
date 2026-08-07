@@ -96,20 +96,104 @@
                                                     <li><a href="{{ route('home3') }}">Home 03</a></li>
                                                 </ul>
                                             </li>
-                                            <li>
-                                                <a href="#about">About Us</a>
+                                           <li class="has-dropdown">
+                                                <a href="{{ route('profil.index') }}">
+                                                    Profil
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+
+                                                <ul class="submenu">
+                                                    <li><a href="{{ route('profil.tentang-kabupaten') }}">Tentang Kabupaten Brebes</a></li>
+                                                    <li><a href="{{ route('profil.visi-misi') }}">Visi dan Misi Kabupaten Brebes</a></li>
+                                                    <li><a href="{{ route('profil.tupoksi-ppid') }}">Tupoksi PPID dan PPID Pelaksana</a></li>
+                                                    <li><a href="{{ route('profil.profil-pimpinan') }}">Profil Pimpinan Badan Publik</a></li>
+                                                    <li><a href="{{ route('profil.tentang-ppid') }}">Tentang PPID</a></li>
+                                                    <li><a href="{{ route('profil.struktur-ppid') }}">Struktur PPID</a></li>
+                                                    <li><a href="{{ route('profil.lhkpn') }}">LHKPN Pimpinan Badan Publik</a></li>
+                                                    <li><a href="{{ route('profil.alamat-dinas') }}">Alamat Lengkap Dinas</a></li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <a href="#services"> Services </a>
+                                                <a href="{{ route('services.index') }}">
+                                                    Regulasi PPID
+                                                </a>
+                                            </li>
+                                            <li class="has-dropdown">
+                                                <a href="{{ route('layanan.index') }}">
+                                                    Layanan
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+
+                                                <ul class="submenu">
+                                                    <li>
+                                                        <a href="{{ route('layanan.sop-ppid') }}">
+                                                            SOP Aplikasi PPID
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('layanan.alur-permohonan') }}">
+                                                            Alur Permohonan Informasi PPID
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('layanan.daftar-permohonan') }}">
+                                                            Daftar Permohonan Informasi Publik
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('layanan.formulir-permohonan') }}">
+                                                            Formulir Permohonan Informasi Publik
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class="has-dropdown">
+                                                <a href="{{ route('informasi-publik.index') }}">
+                                                    Informasi Publik
+                                                    <i class="fas fa-angle-down"></i>
+                                                </a>
+
+                                                <ul class="submenu">
+                                                    <li>
+                                                        <a href="{{ route('informasi-publik.informasi-berkala') }}">
+                                                            Informasi Publik Yang Wajib Disediakan dan Diumumkan Secara Berkala
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('informasi-publik.informasi-serta-merta') }}">
+                                                            Informasi Yang Wajib Diumumkan Secara Serta Merta
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('informasi-publik.informasi-dikecualikan') }}">
+                                                            Informasi Yang Dikecualikan
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="{{ route('informasi-publik.informasi-setiap-saat') }}">
+                                                            Informasi Wajib Tersedia Setiap Saat
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                             <li>
-                                                <a href="#pricing"> Pricing </a>
+                                                <a href="{{ route('pricing') }}">
+                                                    Berita
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="#blog"> Blog </a>
+                                                <a href="{{ route('login') }}">
+                                                    Login
+                                                </a>
                                             </li>
                                             <li>
-                                                <a href="#testimonials">Testimonials</a>
+                                                <a href="{{ route('contact.index') }}">Contact Us</a>
                                             </li>
                                         </ul>
                                     </nav>

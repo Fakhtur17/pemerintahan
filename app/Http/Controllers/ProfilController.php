@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TentangKabupatenBagian;
+
 class ProfilController extends Controller
 {
     public function index()
@@ -11,8 +13,11 @@ class ProfilController extends Controller
 
     public function tentangKabupaten()
     {
-        return view('pages.profil.tentang-kabupaten');
+        $bagian = TentangKabupatenBagian::orderBy('urutan')->orderBy('id')->get();
+
+        return view('pages.profil.tentang-kabupaten', compact('bagian'));
     }
+
 
     public function visiMisi()
     {

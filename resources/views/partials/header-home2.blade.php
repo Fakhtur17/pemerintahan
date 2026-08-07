@@ -188,6 +188,11 @@
                                                     Berita
                                                 </a>
                                             </li>
+                                            <li>
+                                                <a href="{{ route('login') }}">
+                                                    Login
+                                                </a>
+                                            </li>
                                             <li class="has-dropdown">
                                             <li>
                                                 <a href="{{ route('contact.index') }}">Contact Us</a>
