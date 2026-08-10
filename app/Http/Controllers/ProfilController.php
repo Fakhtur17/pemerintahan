@@ -6,6 +6,8 @@ use App\Models\TentangKabupatenBagian;
 use App\Models\VisiMisi;
 use App\Models\TupoksiPpid;
 use App\Models\ProfilPimpinan;
+use App\Models\TentangPpidBagian;
+use App\Models\StrukturPpid;
 
 class ProfilController extends Controller
 {
@@ -57,12 +59,20 @@ class ProfilController extends Controller
 
     public function tentangPpid()
     {
-        return view('pages.profil.tentang-ppid');
+        $bagian = TentangPpidBagian::orderBy('urutan')
+            ->orderBy('id')
+            ->get();
+
+        return view(
+            'pages.profil.tentang-ppid',
+            compact('bagian')
+        );
     }
 
     public function strukturPpid()
     {
-        return view('pages.profil.struktur-ppid');
+        $strukturPpid = StrukturPpid::latest()->first();
+        return view('pages.profil.struktur-ppid', compact('strukturPpid'));
     }
 
     public function lhkpn()
