@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\TentangKabupatenBagian;
+use App\Models\VisiMisi;
+use App\Models\TupoksiPpid;
+use App\Models\ProfilPimpinan;
 
 class ProfilController extends Controller
 {
@@ -21,17 +24,35 @@ class ProfilController extends Controller
 
     public function visiMisi()
     {
-        return view('pages.profil.visi-misi');
+        $visiMisi = VisiMisi::orderBy('urutan')
+            ->orderBy('id')
+            ->get();
+
+        return view(
+            'pages.profil.visi-misi',
+            compact('visiMisi')
+        );
     }
+
 
     public function tupoksiPpid()
     {
-        return view('pages.profil.tupoksi-ppid');
+        $tupoksiPpid = TupoksiPpid::latest()->first();
+
+        return view(
+            'pages.profil.tupoksi-ppid',
+            compact('tupoksiPpid')
+        );
     }
 
     public function profilPimpinan()
     {
-        return view('pages.profil.profil-pimpinan');
+        $profilPimpinan = ProfilPimpinan::latest()->get();
+
+        return view(
+            'pages.profil.profil-pimpinan',
+            compact('profilPimpinan')
+        );
     }
 
     public function tentangPpid()

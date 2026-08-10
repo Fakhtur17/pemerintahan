@@ -1,496 +1,1293 @@
 @extends('layouts.app', [
-    'headerVariant' => 'inner',
-    'footerVariant' => 'default',
+'headerVariant' => 'inner',
+'footerVariant' => 'default',
 ])
 
-@section('title', 'Tentang Kami | Niotech')
-@section('meta_description', 'Tentang Kami | Niotech')
+@section('title', 'Tupoksi PPID | Niotech')
+@section('meta_description', 'Tugas Pokok dan Fungsi PPID | Niotech')
 
 @section('content')
-<!-- Breadcumb Section S T A R T -->
-    <div class="breadcumb-section fix">
-        <div class="breadcumb-container-wrapper" data-bg-src="{{ asset('assets/images/bg/breadcumgBg.png') }}">
-            <div class="container">
-                <div class="shape1"><img src="{{ asset('assets/images/shape/breadCumbShape1_1.png') }}" alt="shape"></div>
-                <div class="shape2"><img src="{{ asset('assets/images/shape/breadCumbShape1_2.png') }}" alt="shape"></div>
-                <div class="breadcumb-wrapper">
-                    <div class="page-heading">
-                        <h1>Halaman Keempat </h1>
-                        <div class="links">
-                            <a href="{{ route('home') }}">Home<span class="slash">/</span></a>Tupoksi PPID dan PPID Pelaksana
-                        </div>
-                    </div>
-                </div>
+
+
+{{-- =========================================================
+BREADCRUMB
+========================================================= --}}
+
+<div class="breadcumb-section fix">
+
+    <div
+        class="breadcumb-container-wrapper"
+        data-bg-src="{{ asset('assets/images/bg/breadcumgBg.png') }}">
+
+        <div class="container">
+
+            {{-- Shape 1 --}}
+
+            <div class="shape1">
+                <img
+                    src="{{ asset('assets/images/shape/breadCumbShape1_1.png') }}"
+                    alt="shape">
             </div>
+
+            {{-- Shape 2 --}}
+
+            <div class="shape2">
+                <img
+                    src="{{ asset('assets/images/shape/breadCumbShape1_2.png') }}"
+                    alt="shape">
+            </div>
+
+            {{-- Breadcrumb --}}
+
+            <div class="breadcumb-wrapper">
+
+                <div class="page-heading">
+
+                    <h1>
+                        Tupoksi PPID
+                    </h1>
+
+                    <div class="links">
+
+                        <a href="{{ route('home') }}">
+                            Home
+                            <span class="slash">/</span>
+                        </a>
+
+                        <a href="#">
+                            Profil
+                            <span class="slash">/</span>
+                        </a>
+
+                        Tupoksi PPID
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
+
     </div>
 
-    <!-- About Us Section S T A R T -->
-    <section class="about-section section-padding fix">
-        <div class="about-container-wrapper style1">
-            <div class="container">
-                <div class="about-wrapper style1">
-                    <div class="row gy-5 gx-60">
-                        <div class="col-xl-6">
-                            <div class="about-thumb">
-                                <div class="bg"></div>
-                                <div class="thumbShape1 d-none d-xxl-block cir36"><img
-                                        src="{{ asset('assets/images/shape/aboutThumbShape1_1.png') }}" alt="shape"></div>
-                                <div class="thumbShape2 d-none d-xxl-block cir36"><img
-                                        src="{{ asset('assets/images/shape/aboutThumbShape1_2.png') }}" alt="shape"></div>
-                                <div class="thumbShape3 d-none d-xxl-block cir36 float-bob-y"><img
-                                        src="{{ asset('assets/images/shape/aboutThumbShape1_3.png') }}" alt="shape"></div>
-                                <div class="thumbShape4 d-none d-xxl-block cir36"><img
-                                        src="{{ asset('assets/images/shape/aboutThumbShape1_4.png') }}" alt="shape"></div>
-                                <div class="main-thumb">
-                                    <img src="{{ asset('assets/images/about/aboutThumb1_1.png') }}" alt="thumb">
-                                </div>
-                                <div class="absolute-thumb float-bob-x">
-                                    <img src="{{ asset('assets/images/about/aboutThumb1_2.png') }}" alt="thumb">
-                                </div>
+</div>
 
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="about-content">
-                                <div class="section-title">
-                                    <div class="subtitle wow fadeInUp" data-wow-delay=".2s">
-                                        About Our App <img src="{{ asset('assets/images/icon/fireIcon.svg') }}" alt="icon">
-                                    </div>
-                                    <h2 class="title wow fadeInUp" data-wow-delay=".4s">Simple Reports & Analytics
-                                        Backdown As it</h2>
-                                    <p class="section-desc wow fadeInUp" data-wow-delay=".6s">There are many variations
-                                        of passages of Lorem Ipsum
-                                        available, but the majority have suffered alteration in some form, by injected
-                                        humour, or randomised words which don't look even slightly believable. If you
-                                        are going to use</p>
-                                </div>
-                                <ul class="checklist style1 wow fadeInUp" data-wow-delay=".2s">
-                                    <li><img src="{{ asset('assets/images/icon/checkmarkIcon.svg') }}" alt="icon"> With our
-                                        Technological and Marketing Solutions.</li>
-                                    <li><img src="{{ asset('assets/images/icon/checkmarkIcon.svg') }}" alt="icon"> We are trusted all
-                                        over the world. </li>
-                                    <li><img src="{{ asset('assets/images/icon/checkmarkIcon.svg') }}" alt="icon"> Start Your 14 Days
-                                        Free Trials Today! </li>
-                                </ul>
-                                <a class="theme-btn wow fadeInUp" data-wow-delay=".2s" href="{{ route('about') }}">Discover More
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"
-                                        fill="none">
-                                        <g clip-path="url(#clip0_18_41)">
-                                            <path
-                                                d="M11.6118 3.61182L10.8991 4.32454L14.0706 7.49603H0V8.50398H14.0706L10.8991 11.6754L11.6118 12.3882L16 7.99997L11.6118 3.61182Z"
-                                                fill="white" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_18_41">
-                                                <rect width="16" height="16" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
+{{-- =========================================================
+TUPoksi PPID SECTION
+========================================================= --}}
+
+<section class="tupoksi-ppid-section section-padding fix">
+
+    <div class="container">
+
+        @if($tupoksiPpid)
+
+
+        {{-- =================================================
+        JUDUL
+        ================================================== --}}
+
+        <div class="section-title text-center mxw-800 mx-auto mb-5">
+
+            <div
+                class="subtitle wow fadeInUp"
+                data-wow-delay=".2s">
+
+                Tugas Pokok dan Fungsi PPID
+
+                <img
+                    src="{{ asset('assets/images/icon/fireIcon.svg') }}"
+                    alt="icon">
+
             </div>
-        </div>
-    </section>
 
-    <!-- Why Choose Us Section S T A R T -->
-    <section class="wcu-section">
-        <div class="wcu-container-wrapper style2">
-            <div class="container">
-                <div class="wcu-wrapper style2  section-padding fix">
-                    <div class="container">
-                        <div class="row gy-5 gx-60 d-flex align-items-center">
-                            <div class="col-xl-6">
-                                <div class="wcu-thumb">
-                                    <div class="main-thumb img-custom-anim-right wow fadeInUp" data-wow-delay=".4s">
-                                        <img src="{{ asset('assets/images/wcu/wcuThumb2_1.png') }}" alt="thumb">
-                                    </div>
-                                    <div class="thumb2 float-bob-y"><img src="{{ asset('assets/images/wcu/wcuThumb2_2.png') }}"
-                                            alt="thumb"></div>
-                                    <div class="thumb3 float-bob-x"><img src="{{ asset('assets/images/wcu/wcuThumb2_3.png') }}"
-                                            alt="thumb"></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="wcu-content">
-                                    <div class="section-title">
-                                        <div class="subtitle wow fadeInUp" data-wow-delay=".2s">
-                                            Customizations & Analysis <img src="{{ asset('assets/images/icon/fireIcon.svg') }}"
-                                                alt="icon">
-                                        </div>
-                                        <h2 class="title wow fadeInUp" data-wow-delay=".4s">Manage your Team’s Easily
-                                            Communication.</h2>
-                                        <p class="text1 wow fadeInUp" data-wow-delay=".6s">There are many variations of
-                                            passages of Lorem Ipsum available, but the majority have suffered alteration
-                                            in some form, by injected humour, or randomised words which don't look even
-                                        </p>
-                                    </div>
-                                    <div class="fancy-box style3 mb-20 wow fadeInUp" data-wow-delay=".4s">
-                                        <div class="icon">
-                                            <img src="{{ asset('assets/images/icon/wcuIcon2_1.svg') }}" alt="icon">
-                                        </div>
-                                        <div class="content">
-                                            <h4>Easy Collaboration</h4>
-                                            <p class="text">There are many variations of passages of Lorem Ipsum
-                                                available, but the majority have</p>
-                                        </div>
-                                    </div>
-                                    <div class="fancy-box style3 wow fadeInUp" data-wow-delay=".6s">
-                                        <div class="icon">
-                                            <img src="{{ asset('assets/images/icon/wcuIcon2_2.svg') }}" alt="icon">
-                                        </div>
-                                        <div class="content">
-                                            <h4>Innovative Solutions</h4>
-                                            <p class="text">There are many variations of passages of Lorem Ipsum
-                                                available, but the majority have</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <h2
+                class="title wow fadeInUp"
+                data-wow-delay=".4s">
+                {{ $tupoksiPpid->judul }}
+            </h2>
+
+        </div>
+
+
+
+        {{-- =================================================
+        PDF VIEWER
+        ================================================== --}}
+
+        <div
+            class="tupoksi-pdf-wrapper wow fadeInUp"
+            data-wow-delay=".5s">
+
+            <div class="tupoksi-pdf-card">
+
+
+                {{-- =========================================
+                PDF CONTAINER
+
+                URL PDF disimpan di data-pdf-url
+                supaya tidak ada di JavaScript
+                ========================================== --}}
+
+                <div
+                    id="pdf-container"
+                    class="pdf-container"
+                    data-pdf-url="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}">
+
+                    {{-- Canvas PDF --}}
+
+                    <canvas id="pdf-canvas"></canvas>
+
+
+                    {{-- Loading --}}
+
+                    <div
+                        id="pdf-loading"
+                        class="pdf-loading">
+
+                        <div
+                            class="spinner-border"
+                            role="status"></div>
+
+                        <p class="mt-3 mb-0">
+                            Memuat dokumen...
+                        </p>
+
                     </div>
+
+
+                    {{-- Error --}}
+
+                    <div
+                        id="pdf-error"
+                        class="pdf-error"
+                        style="display: none;">
+
+                        <div class="text-center">
+
+                            <i class="fa-solid fa-circle-exclamation"></i>
+
+                            <h4>
+                                Gagal Memuat Dokumen
+                            </h4>
+
+                            <p>
+                                Dokumen PDF tidak dapat ditampilkan.
+                            </p>
+
+                            <a
+                                href="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}"
+                                target="_blank"
+                                class="theme-btn">
+                                Buka PDF
+                            </a>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
+
+
+                {{-- =========================================
+                NAVIGASI PDF
+                ========================================== --}}
+
+                <div class="pdf-navigation">
+
+
+                    {{-- Tombol Sebelumnya --}}
+
+                    <button
+                        type="button"
+                        id="prev-page"
+                        class="pdf-nav-btn">
+
+                        <i class="fa-solid fa-chevron-left"></i>
+
+                        <span>
+                            Sebelumnya
+                        </span>
+
+                    </button>
+
+
+
+                    {{-- Nomor halaman --}}
+
+                    <div class="pdf-page-info">
+
+                        <span>
+                            Halaman
+                        </span>
+
+                        <strong id="page-num">
+                            1
+                        </strong>
+
+                        <span>
+                            dari
+                        </span>
+
+                        <strong id="page-count">
+                            -
+                        </strong>
+
+                    </div>
+
+
+
+                    {{-- Tombol Selanjutnya --}}
+
+                    <button
+                        type="button"
+                        id="next-page"
+                        class="pdf-nav-btn">
+
+                        <span>
+                            Selanjutnya
+                        </span>
+
+                        <i class="fa-solid fa-chevron-right"></i>
+
+                    </button>
+
+                </div>
+
             </div>
-        </div>
-    </section>
 
-    <!-- Work Process Section S T A R T -->
-    <section class="work-process-section section-padding fix">
-        <div class="work-process-container-wrapper style1">
-            <div class="container">
-                <div class="section-title text-center mxw-565 mx-auto">
-                    <div class="subtitle wow fadeInUp" data-wow-delay=".2s">
-                        How It Work <img src="{{ asset('assets/images/icon/fireIcon.svg') }}" alt="icon">
-                    </div>
-                    <h2 class="title wow fadeInUp" data-wow-delay=".4s">Make Your Device Manage Everything For You!</h2>
-                </div>
-                <div class="work-process-wrapper style1">
-                    <div class="shape"><img src="{{ asset('assets/images/shape/workProcessShape1_1.png') }}" alt="shape"></div>
-                    <div class="row">
-                        <div class="col-xl-4">
-                            <div class="work-process-box style1 wow fadeInUp" data-wow-delay=".2s">
-                                <div class="step">STEP - 01</div>
-                                <div class="title">Download App</div>
-                                <div class="text">There are many variations of passages of Lorem</div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="work-process-box style1 child2 wow fadeInUp" data-wow-delay=".4s">
-                                <div class="step">STEP - 02</div>
-                                <div class="title">Create account</div>
-                                <div class="text">There are many variations of passages of Lorem</div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4">
-                            <div class="work-process-box style1 wow fadeInUp" data-wow-delay=".6s">
-                                <div class="step">STEP - 03</div>
-                                <div class="title">Install App, & Enjoy</div>
-                                <div class="text">There are many variations of passages of Lorem</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        </div>
+
+
+
+        {{-- =================================================
+        TOMBOL BUKA PDF
+        ================================================== --}}
+
+        <div class="text-center mt-4">
+
+            <a
+                href="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}"
+                target="_blank"
+                class="theme-btn">
+
+                <i class="fa-solid fa-file-pdf me-2"></i>
+
+                Buka Dokumen PDF
+
+            </a>
+
+        </div>
+
+
+        @else
+
+
+        {{-- =================================================
+        BELUM ADA DATA
+        ================================================== --}}
+
+        <div class="text-center py-5">
+
+            <div class="tupoksi-empty-icon mb-4">
+
+                <i class="fa-regular fa-file-pdf"></i>
+
             </div>
+
+            <h3 class="mb-3">
+                Dokumen Tupoksi PPID Belum Tersedia
+            </h3>
+
+            <p class="text-muted mb-0">
+
+                Dokumen Tugas Pokok dan Fungsi PPID
+                belum tersedia saat ini.
+
+            </p>
+
         </div>
-    </section>
-
-    <!-- Why Choose Us Section S T A R T -->
-    <section class="wcu-section section-padding pt-0 fix">
-        <div class="wcu-container-wrapper style3">
-            <div class="container">
-                <div class="wcu-wrapper style3">
-                    <div class="row gy-5 gx-60">
-                        <div class="col-xl-6">
-                            <div class="wcu-content">
-                                <div class="section-title">
-                                    <div class="subtitle wow fadeInUp" data-wow-delay=".2s">
-                                        Customizations & Analysis <img src="{{ asset('assets/images/icon/fireIcon.svg') }}" alt="icon">
-                                    </div>
-                                    <h2 class="title wow fadeInUp" data-wow-delay=".4s">Manage your Traffic Growth
-                                        Easily</h2>
-                                    <p class="text1 wow fadeInUp" data-wow-delay=".6s">There are many variations of
-                                        passages of Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form, by injected humour, or randomised words which don't look even</p>
-                                    <p class="text2 wow fadeInUp" data-wow-delay=".8s">There are many variations of
-                                        passages of Lorem Ipsum available, but the majority have suffered alteration in
-                                        some form,</p>
-                                </div>
-                                <a class="theme-btn rounded-5 wow fadeInUp" data-wow-delay=".4s" href="{{ route('about') }}">View
-                                    All Project
-                                    <svg class="ms-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                        viewBox="0 0 16 16" fill="none">
-                                        <g clip-path="url(#clip0_190_64)">
-                                            <path
-                                                d="M11.6118 3.61182L10.8991 4.32454L14.0706 7.49603H0V8.50398H14.0706L10.8991 11.6754L11.6118 12.3882L16 7.99997L11.6118 3.61182Z"
-                                                fill="white" />
-                                        </g>
-                                        <defs>
-                                            <clipPath id="clip0_190_64">
-                                                <rect width="16" height="16" fill="white" />
-                                            </clipPath>
-                                        </defs>
-                                    </svg>
-                                </a>
-                                <div class="counter-box-wrapper style3">
-                                    <div class="counter-box style3 wow fadeInUp" data-wow-delay=".2s">
-                                        <div class="counter">
-                                            <span class="counter-nubmer">56</span> <span>k+</span>
-                                        </div>
-                                        <p class="text">Comparers</p>
-                                    </div>
-                                    <div class="counter-box style3 wow fadeInUp" data-wow-delay=".4s">
-                                        <div class="counter">
-                                            <span class="counter-nubmer">126</span> <span>k+</span>
-                                        </div>
-                                        <p class="text">Use People</p>
-                                    </div>
-                                    <div class="counter-box style3 wow fadeInUp" data-wow-delay=".6s">
-                                        <div class="counter">
-                                            <span class="counter-nubmer">1.2</span> <span>M+</span>
-                                        </div>
-                                        <p class="text">Download It</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="wcu-thumb">
-                                <div class="main-thumb img-custom-anim-left wow fadeInUp" data-wow-delay=".4s">
-                                    <img src="{{ asset('assets/images/wcu/wcuThumb3_1.png') }}" alt="thumb">
-                                </div>
-                                <div class="thumb2">
-                                    <img src="{{ asset('assets/images/wcu/wcuThumb3_2.png') }}" alt="thumb">
-                                </div>
-                                <div class="thumb-box wow fadeInUp" data-wow-delay=".4s">
-                                    <h5>Traffic Growth</h5>
-                                    <p class="text">Total traffic growth of 45%</p>
-                                    <div class="shape-box">
-                                        <img src="{{ asset('assets/images/shape/wcuThumbShape3_1.png') }}" alt="shape">
-                                        <div class="shape-content">
-                                            <h6>Transaction</h6>
-                                            <h3>86%</h3>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
-    <!-- Testimonial Section S T A R T -->
-    <section class="testimonial-section section-padding pt-0 fix">
-        <div class="container">
-            <div class="testimonial-wrapper style3">
-                <div class="section-title-wrapper style3">
-                    <div class="row d-flex align-items-center">
-                        <div class="col-xl-6">
-                            <div class="section-title">
-                                <div class="subtitle">
-                                    Testimonial <img src="{{ asset('assets/images/icon/fireIcon.svg') }}" alt="icon">
-                                </div>
-                                <h2 class="title">What our clients say?</h2>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div class="slider-arrow-button style2 text-end wow fadeInUp" data-wow-delay=".9s">
-                                <button data-slider-prev="#testimonialSliderThree" class="slider-arrow arrowPrev"><i
-                                        class="fa-sharp fa-solid fa-chevron-left"></i></button>
-                                <button data-slider-next="#testimonialSliderThree" class="slider-arrow arrowNext"><i
-                                        class="fa-sharp fa-solid fa-chevron-right"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        @endif
 
-                <div class="slider-area testimonialSliderThree">
-                    <div class="swiper gt-slider" id="testimonialSliderThree"
-                        data-slider-options='{"loop": true,"breakpoints":{"0":{"slidesPerView":1},"576":{"slidesPerView":1,"centeredSlides":true},"768":{"slidesPerView":1},"992":{"slidesPerView":2},"1200":{"slidesPerView":3}}}'>
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_1.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Jacob Jones</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_2.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Selim Box</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_3.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Masirul Islam</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_1.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Jacob Jones</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_1.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Jacob Jones</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-card style2">
-                                    <div class="testimonial-header">
-                                        <div class="profile-thumb">
-                                            <img src="{{ asset('assets/images/testimoial/testimonialProfileThumb1_1.jpg') }}"
-                                                alt="thumb">
-                                        </div>
-                                        <div class="content">
-                                            <h5>Jacob Jones</h5>
-                                            <p class="text">Team Leader</p>
-                                        </div>
-                                    </div>
-                                    <div class="testimonial-body">
-                                        <ul class="star-wrapper style1">
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                            <li><img src="{{ asset('assets/images/icon/starIcon1_1.svg') }}" alt="icon"></li>
-                                        </ul>
-                                        <p class="desc">There are many variations of passages of Lorem Ipsum
-                                            available,a but
-                                            chiropractor like majority have a suffered alteration in some form,
-                                            by injected humour,</p>
-                                    </div>
-                                    <div class="quote-icon"><img src="{{ asset('assets/images/icon/quoteIcon.svg') }}" alt="icon">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+
+</section>
+
+
+
+{{-- =========================================================
+PDF VIEWER STYLE
+========================================================= --}}
+
+<style>
+    /*
+    |--------------------------------------------------------------------------
+    | PDF WRAPPER
+    |--------------------------------------------------------------------------
+    */
+
+    .tupoksi-pdf-wrapper {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PDF CARD
+    |--------------------------------------------------------------------------
+    */
+
+    .tupoksi-pdf-card {
+
+        width: 100%;
+
+        background: #f4f5f7;
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+        box-shadow:
+            0 10px 35px rgba(0, 0, 0, 0.08);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PDF CONTAINER
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-container {
+
+        position: relative;
+
+        width: 100%;
+
+        min-height: 750px;
+
+        padding: 25px;
+
+        background: #e9ecef;
+
+        border-radius: 10px;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        overflow: auto;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PDF CANVAS
+    |--------------------------------------------------------------------------
+    */
+
+    #pdf-canvas {
+
+        display: block;
+
+        max-width: 100%;
+
+        height: auto;
+
+        background: #ffffff;
+
+        box-shadow:
+            0 5px 25px rgba(0, 0, 0, 0.15);
+
+        border-radius: 2px;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | LOADING
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-loading {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 10;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #f4f5f7;
+
+        border-radius: 10px;
+    }
+
+
+    .pdf-loading .spinner-border {
+
+        width: 45px;
+
+        height: 45px;
+    }
+
+
+    .pdf-loading p {
+
+        color: #555;
+
+        font-size: 15px;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ERROR
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-error {
+
+        position: absolute;
+
+        inset: 0;
+
+        z-index: 20;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #f4f5f7;
+
+        border-radius: 10px;
+    }
+
+
+    .pdf-error i {
+
+        display: block;
+
+        margin-bottom: 20px;
+
+        font-size: 55px;
+
+        color: #dc3545;
+    }
+
+
+    .pdf-error h4 {
+
+        margin-bottom: 10px;
+    }
+
+
+    .pdf-error p {
+
+        color: #777;
+
+        margin-bottom: 20px;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | NAVIGATION
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-navigation {
+
+        margin-top: 20px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 20px;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | NAVIGATION BUTTON
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-nav-btn {
+
+        border: none;
+
+        outline: none;
+
+        background: #6f42f5;
+
+        color: #ffffff;
+
+        padding: 12px 22px;
+
+        border-radius: 8px;
+
+        font-size: 15px;
+
+        font-weight: 600;
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 9px;
+
+        cursor: pointer;
+
+        transition: all .3s ease;
+    }
+
+
+    .pdf-nav-btn:hover {
+
+        background: #5931d9;
+
+        transform: translateY(-2px);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DISABLED BUTTON
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-nav-btn:disabled {
+
+        background: #adb5bd;
+
+        opacity: .6;
+
+        cursor: not-allowed;
+
+        transform: none;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | PAGE INFO
+    |--------------------------------------------------------------------------
+    */
+
+    .pdf-page-info {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 7px;
+
+        color: #555;
+
+        font-size: 16px;
+
+        white-space: nowrap;
+    }
+
+
+    .pdf-page-info strong {
+
+        color: #111;
+
+        font-weight: 700;
+
+        min-width: 20px;
+
+        text-align: center;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | EMPTY STATE
+    |--------------------------------------------------------------------------
+    */
+
+    .tupoksi-empty-icon {
+
+        width: 90px;
+
+        height: 90px;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        background: #f1f3f5;
+
+        border-radius: 50%;
+    }
+
+
+    .tupoksi-empty-icon i {
+
+        font-size: 45px;
+
+        color: #adb5bd;
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | TABLET
+    |--------------------------------------------------------------------------
+    */
+
+    @media (max-width: 991px) {
+
+        .pdf-container {
+
+            min-height: 600px;
+
+            padding: 15px;
+        }
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | MOBILE
+    |--------------------------------------------------------------------------
+    */
+
+    @media (max-width: 768px) {
+
+        .tupoksi-pdf-card {
+
+            padding: 10px;
+
+            border-radius: 10px;
+        }
+
+
+        .pdf-container {
+
+            min-height: 500px;
+
+            padding: 10px;
+        }
+
+
+        .pdf-navigation {
+
+            flex-direction: column;
+
+            gap: 12px;
+        }
+
+
+        .pdf-page-info {
+
+            order: -1;
+        }
+
+
+        .pdf-nav-btn {
+
+            width: 100%;
+
+            padding: 11px 15px;
+        }
+
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | SMALL MOBILE
+    |--------------------------------------------------------------------------
+    */
+
+    @media (max-width: 480px) {
+
+        .pdf-container {
+
+            min-height: 450px;
+        }
+
+
+        .pdf-page-info {
+
+            font-size: 14px;
+        }
+
+    }
+</style>
+
+
+
+{{-- =========================================================
+PDF.JS
+========================================================= --}}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | PDF CONTAINER
+        |--------------------------------------------------------------------------
+        */
+
+        const pdfContainer =
+            document.getElementById('pdf-container');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | JIKA TIDAK ADA DATA PDF
+        |--------------------------------------------------------------------------
+        */
+
+        if (!pdfContainer) {
+
+            return;
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | URL PDF
+        |--------------------------------------------------------------------------
+        |
+        | URL diambil dari:
+        |
+        |
+        | Jadi tidak menggunakan  di JavaScript.
+        |
+        |--------------------------------------------------------------------------
+        */
+
+        const pdfUrl =
+            pdfContainer.dataset.pdfUrl;
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | ELEMENT
+        |--------------------------------------------------------------------------
+        */
+
+        const canvas =
+            document.getElementById('pdf-canvas');
+
+        const ctx =
+            canvas.getContext('2d');
+
+        const loading =
+            document.getElementById('pdf-loading');
+
+        const errorBox =
+            document.getElementById('pdf-error');
+
+        const prevButton =
+            document.getElementById('prev-page');
+
+        const nextButton =
+            document.getElementById('next-page');
+
+        const pageNumElement =
+            document.getElementById('page-num');
+
+        const pageCountElement =
+            document.getElementById('page-count');
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | VARIABLE
+        |--------------------------------------------------------------------------
+        */
+
+        let pdfDoc = null;
+
+        let pageNum = 1;
+
+        let pageRendering = false;
+
+        let pageNumPending = null;
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | PDF.JS WORKER
+        |--------------------------------------------------------------------------
+        */
+
+        pdfjsLib.GlobalWorkerOptions.workerSrc =
+            'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | RENDER PAGE
+        |--------------------------------------------------------------------------
+        */
+
+        function renderPage(num) {
+
+            pageRendering = true;
+
+
+            pdfDoc.getPage(num).then(function(page) {
+
+
+                /*
+                | Lebar container
+                */
+
+                const containerWidth =
+                    pdfContainer.clientWidth - 50;
+
+
+                /*
+                | Viewport awal
+                */
+
+                const viewport =
+                    page.getViewport({
+                        scale: 1
+                    });
+
+
+                /*
+                | Hitung ukuran berdasarkan container
+                */
+
+                let scale =
+                    containerWidth / viewport.width;
+
+
+                /*
+                | Batas minimum
+                */
+
+                if (scale < 0.5) {
+
+                    scale = 0.5;
+
+                }
+
+
+                /*
+                | Batas maksimum
+                */
+
+                if (scale > 1.8) {
+
+                    scale = 1.8;
+
+                }
+
+
+                /*
+                | Viewport final
+                */
+
+                const scaledViewport =
+                    page.getViewport({
+                        scale: scale
+                    });
+
+
+                /*
+                | Set ukuran canvas
+                */
+
+                canvas.width =
+                    scaledViewport.width;
+
+                canvas.height =
+                    scaledViewport.height;
+
+
+                /*
+                | Render context
+                */
+
+                const renderContext = {
+
+                    canvasContext: ctx,
+
+                    viewport: scaledViewport
+
+                };
+
+
+                /*
+                | Render PDF
+                */
+
+                const renderTask =
+                    page.render(renderContext);
+
+
+                renderTask.promise.then(function() {
+
+                    pageRendering = false;
+
+
+                    /*
+                    | Jika ada halaman menunggu
+                    */
+
+                    if (pageNumPending !== null) {
+
+                        renderPage(pageNumPending);
+
+                        pageNumPending = null;
+
+                    }
+
+                });
+
+            });
+
+
+            /*
+            | Update nomor halaman
+            */
+
+            pageNumElement.textContent =
+                num;
+
+
+            /*
+            | Update tombol
+            */
+
+            updateButtons();
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | QUEUE RENDER
+        |--------------------------------------------------------------------------
+        */
+
+        function queueRenderPage(num) {
+
+            if (pageRendering) {
+
+                pageNumPending = num;
+
+            } else {
+
+                renderPage(num);
+
+            }
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | PREVIOUS
+        |--------------------------------------------------------------------------
+        */
+
+        function onPrevPage() {
+
+            if (pageNum <= 1) {
+
+                return;
+
+            }
+
+
+            pageNum--;
+
+            queueRenderPage(pageNum);
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | NEXT
+        |--------------------------------------------------------------------------
+        */
+
+        function onNextPage() {
+
+            if (!pdfDoc) {
+
+                return;
+
+            }
+
+
+            if (pageNum >= pdfDoc.numPages) {
+
+                return;
+
+            }
+
+
+            pageNum++;
+
+            queueRenderPage(pageNum);
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | UPDATE BUTTON
+        |--------------------------------------------------------------------------
+        */
+
+        function updateButtons() {
+
+            if (!pdfDoc) {
+
+                prevButton.disabled = true;
+
+                nextButton.disabled = true;
+
+                return;
+
+            }
+
+
+            /*
+            | Halaman pertama
+            */
+
+            prevButton.disabled =
+                pageNum <= 1;
+
+
+            /*
+            | Halaman terakhir
+            */
+
+            nextButton.disabled =
+                pageNum >= pdfDoc.numPages;
+
+        }
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | LOAD PDF
+        |--------------------------------------------------------------------------
+        */
+
+        pdfjsLib
+            .getDocument(pdfUrl)
+            .promise
+
+            .then(function(pdf) {
+
+
+                /*
+                | Simpan PDF
+                */
+
+                pdfDoc = pdf;
+
+
+                /*
+                | Total halaman
+                */
+
+                pageCountElement.textContent =
+                    pdf.numPages;
+
+
+                /*
+                | Hilangkan loading
+                */
+
+                loading.style.display =
+                    'none';
+
+
+                /*
+                | Render halaman pertama
+                */
+
+                renderPage(pageNum);
+
+            })
+
+
+            .catch(function(error) {
+
+
+                /*
+                | Tampilkan error di console
+                */
+
+                console.error(
+                    'Gagal memuat PDF:',
+                    error
+                );
+
+
+                /*
+                | Hilangkan loading
+                */
+
+                loading.style.display =
+                    'none';
+
+
+                /*
+                | Tampilkan error box
+                */
+
+                errorBox.style.display =
+                    'flex';
+
+            });
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | BUTTON PREVIOUS
+        |--------------------------------------------------------------------------
+        */
+
+        prevButton.addEventListener(
+            'click',
+            onPrevPage
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | BUTTON NEXT
+        |--------------------------------------------------------------------------
+        */
+
+        nextButton.addEventListener(
+            'click',
+            onNextPage
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | KEYBOARD
+        |--------------------------------------------------------------------------
+        */
+
+        document.addEventListener(
+            'keydown',
+            function(event) {
+
+
+                /*
+                | Arrow kiri
+                */
+
+                if (event.key === 'ArrowLeft') {
+
+                    onPrevPage();
+
+                }
+
+
+                /*
+                | Arrow kanan
+                */
+
+                if (event.key === 'ArrowRight') {
+
+                    onNextPage();
+
+                }
+
+            }
+        );
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | RESPONSIVE
+        |--------------------------------------------------------------------------
+        */
+
+        let resizeTimer;
+
+
+        window.addEventListener(
+            'resize',
+            function() {
+
+
+                clearTimeout(resizeTimer);
+
+
+                resizeTimer = setTimeout(
+                    function() {
+
+
+                        if (pdfDoc) {
+
+                            renderPage(pageNum);
+
+                        }
+
+
+                    },
+                    250
+                );
+
+            }
+        );
+
+
+    });
+</script>
+
+
 @endsection
