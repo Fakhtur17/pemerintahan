@@ -77,27 +77,6 @@ STRUKTUR PPID
 
         <div class="section-title text-center mxw-900 mx-auto mb-40">
 
-            <div
-                class="subtitle wow fadeInUp"
-                data-wow-delay=".2s">
-
-                Struktur PPID
-
-                <img
-                    src="{{ asset('assets/images/icon/fireIcon.svg') }}"
-                    alt="icon">
-
-            </div>
-
-
-            <h2
-                class="title wow fadeInUp"
-                data-wow-delay=".4s">
-
-                {{ $strukturPpid->judul }}
-
-            </h2>
-
 
             {{-- DESKRIPSI DARI ADMIN --}}
 

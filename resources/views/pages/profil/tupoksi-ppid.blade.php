@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 {{-- =========================================================
 BREADCRUMB
 ========================================================= --}}
@@ -21,15 +20,11 @@ BREADCRUMB
 
         <div class="container">
 
-            {{-- Shape 1 --}}
-
             <div class="shape1">
                 <img
                     src="{{ asset('assets/images/shape/breadCumbShape1_1.png') }}"
                     alt="shape">
             </div>
-
-            {{-- Shape 2 --}}
 
             <div class="shape2">
                 <img
@@ -37,15 +32,11 @@ BREADCRUMB
                     alt="shape">
             </div>
 
-            {{-- Breadcrumb --}}
-
             <div class="breadcumb-wrapper">
 
                 <div class="page-heading">
 
-                    <h1>
-                        Tupoksi PPID
-                    </h1>
+                    <h1>Tupoksi PPID</h1>
 
                     <div class="links">
 
@@ -54,10 +45,8 @@ BREADCRUMB
                             <span class="slash">/</span>
                         </a>
 
-                        <a href="#">
-                            Profil
-                            <span class="slash">/</span>
-                        </a>
+                        Profil
+                        <span class="slash">/</span>
 
                         Tupoksi PPID
 
@@ -74,49 +63,19 @@ BREADCRUMB
 </div>
 
 
-
 {{-- =========================================================
-TUPoksi PPID SECTION
+TUPoksi PPID
 ========================================================= --}}
 
-<section class="tupoksi-ppid-section section-padding fix">
+<section class="tupoksi-ppid-section">
 
-    <div class="container">
+    <div class="container tupoksi-pdf-content">
 
         @if($tupoksiPpid)
 
-
         {{-- =================================================
-        JUDUL
-        ================================================== --}}
-
-        <div class="section-title text-center mxw-800 mx-auto mb-5">
-
-            <div
-                class="subtitle wow fadeInUp"
-                data-wow-delay=".2s">
-
-                Tugas Pokok dan Fungsi PPID
-
-                <img
-                    src="{{ asset('assets/images/icon/fireIcon.svg') }}"
-                    alt="icon">
-
-            </div>
-
-            <h2
-                class="title wow fadeInUp"
-                data-wow-delay=".4s">
-                {{ $tupoksiPpid->judul }}
-            </h2>
-
-        </div>
-
-
-
-        {{-- =================================================
-        PDF VIEWER
-        ================================================== --}}
+            PDF VIEWER
+            ================================================== --}}
 
         <div
             class="tupoksi-pdf-wrapper wow fadeInUp"
@@ -124,25 +83,19 @@ TUPoksi PPID SECTION
 
             <div class="tupoksi-pdf-card">
 
-
-                {{-- =========================================
-                PDF CONTAINER
-
-                URL PDF disimpan di data-pdf-url
-                supaya tidak ada di JavaScript
-                ========================================== --}}
+                {{-- =================================================
+                    PDF CONTAINER
+                    ================================================== --}}
 
                 <div
                     id="pdf-container"
                     class="pdf-container"
                     data-pdf-url="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}">
 
-                    {{-- Canvas PDF --}}
-
                     <canvas id="pdf-canvas"></canvas>
 
 
-                    {{-- Loading --}}
+                    {{-- LOADING --}}
 
                     <div
                         id="pdf-loading"
@@ -159,7 +112,7 @@ TUPoksi PPID SECTION
                     </div>
 
 
-                    {{-- Error --}}
+                    {{-- ERROR --}}
 
                     <div
                         id="pdf-error"
@@ -168,7 +121,9 @@ TUPoksi PPID SECTION
 
                         <div class="text-center">
 
-                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <div class="pdf-error-icon">
+                                <i class="fa-solid fa-file-circle-xmark"></i>
+                            </div>
 
                             <h4>
                                 Gagal Memuat Dokumen
@@ -182,7 +137,11 @@ TUPoksi PPID SECTION
                                 href="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}"
                                 target="_blank"
                                 class="theme-btn">
+
+                                <i class="fa-solid fa-file-pdf me-2"></i>
+
                                 Buka PDF
+
                             </a>
 
                         </div>
@@ -192,15 +151,11 @@ TUPoksi PPID SECTION
                 </div>
 
 
-
-                {{-- =========================================
-                NAVIGASI PDF
-                ========================================== --}}
+                {{-- =================================================
+                    NAVIGASI PDF
+                    ================================================== --}}
 
                 <div class="pdf-navigation">
-
-
-                    {{-- Tombol Sebelumnya --}}
 
                     <button
                         type="button"
@@ -215,9 +170,6 @@ TUPoksi PPID SECTION
 
                     </button>
 
-
-
-                    {{-- Nomor halaman --}}
 
                     <div class="pdf-page-info">
 
@@ -240,9 +192,6 @@ TUPoksi PPID SECTION
                     </div>
 
 
-
-                    {{-- Tombol Selanjutnya --}}
-
                     <button
                         type="button"
                         id="next-page"
@@ -263,12 +212,11 @@ TUPoksi PPID SECTION
         </div>
 
 
-
         {{-- =================================================
-        TOMBOL BUKA PDF
-        ================================================== --}}
+            BUTTON BUKA PDF
+            ================================================== --}}
 
-        <div class="text-center mt-4">
+        <div class="text-center tupoksi-download">
 
             <a
                 href="{{ asset('storage/' . $tupoksiPpid->file_pdf) }}"
@@ -286,32 +234,28 @@ TUPoksi PPID SECTION
 
         @else
 
-
         {{-- =================================================
-        BELUM ADA DATA
-        ================================================== --}}
+            BELUM ADA DOKUMEN
+            ================================================== --}}
 
-        <div class="text-center py-5">
+        <div class="tupoksi-empty text-center">
 
-            <div class="tupoksi-empty-icon mb-4">
+            <div class="tupoksi-empty-icon">
 
                 <i class="fa-regular fa-file-pdf"></i>
 
             </div>
 
-            <h3 class="mb-3">
+            <h3>
                 Dokumen Tupoksi PPID Belum Tersedia
             </h3>
 
-            <p class="text-muted mb-0">
-
+            <p>
                 Dokumen Tugas Pokok dan Fungsi PPID
                 belum tersedia saat ini.
-
             </p>
 
         </div>
-
 
         @endif
 
@@ -320,85 +264,103 @@ TUPoksi PPID SECTION
 </section>
 
 
-
 {{-- =========================================================
-PDF VIEWER STYLE
+STYLE
 ========================================================= --}}
 
 <style>
-    /*
-    |--------------------------------------------------------------------------
-    | PDF WRAPPER
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   SECTION UTAMA
+
+   Jarak dari breadcrumb ke konten diperkecil di sini.
+   ========================================================= */
+
+    .tupoksi-ppid-section {
+        padding: 20px 0 80px !important;
+        background: #ffffff;
+    }
+
+
+    /* =========================================================
+   CONTAINER PDF
+   ========================================================= */
+
+    .tupoksi-pdf-content {
+        padding-top: 0 !important;
+    }
+
+
+    /* =========================================================
+   JUDUL
+
+   Jarak judul ke PDF juga diperkecil.
+   ========================================================= */
+
+    .tupoksi-heading {
+        margin-bottom: 20px !important;
+    }
+
+
+    /* =========================================================
+   PDF WRAPPER
+   ========================================================= */
 
     .tupoksi-pdf-wrapper {
         width: 100%;
-        max-width: 1100px;
+        max-width: 1000px;
         margin: 0 auto;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | PDF CARD
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   PDF CARD
+   ========================================================= */
 
     .tupoksi-pdf-card {
-
         width: 100%;
-
-        background: #f4f5f7;
-
-        padding: 20px;
-
-        border-radius: 15px;
-
-        box-shadow:
-            0 10px 35px rgba(0, 0, 0, 0.08);
+        background: #f1f2f4;
+        border: 1px solid #e5e5e5;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.07);
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | PDF CONTAINER
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   PDF AREA
+   ========================================================= */
 
     .pdf-container {
-
         position: relative;
 
         width: 100%;
 
-        min-height: 750px;
+        min-height: 720px;
 
         padding: 25px;
 
-        background: #e9ecef;
+        background: #e7e8eb;
 
-        border-radius: 10px;
+        border-radius: 8px;
 
         display: flex;
 
         justify-content: center;
 
-        align-items: center;
+        align-items: flex-start;
 
         overflow: auto;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | PDF CANVAS
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   CANVAS PDF
+   ========================================================= */
 
     #pdf-canvas {
-
         display: block;
+
+        width: auto;
 
         max-width: 100%;
 
@@ -406,21 +368,15 @@ PDF VIEWER STYLE
 
         background: #ffffff;
 
-        box-shadow:
-            0 5px 25px rgba(0, 0, 0, 0.15);
-
-        border-radius: 2px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.15);
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | LOADING
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   LOADING
+   ========================================================= */
 
     .pdf-loading {
-
         position: absolute;
 
         inset: 0;
@@ -435,36 +391,34 @@ PDF VIEWER STYLE
 
         justify-content: center;
 
-        background: #f4f5f7;
+        background: #e7e8eb;
 
-        border-radius: 10px;
+        border-radius: 8px;
     }
 
 
     .pdf-loading .spinner-border {
+        width: 42px;
+        height: 42px;
 
-        width: 45px;
-
-        height: 45px;
+        color: #6f42f5;
     }
 
 
     .pdf-loading p {
+        margin: 14px 0 0;
 
-        color: #555;
+        color: #666;
 
-        font-size: 15px;
+        font-size: 14px;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | ERROR
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   ERROR
+   ========================================================= */
 
     .pdf-error {
-
         position: absolute;
 
         inset: 0;
@@ -477,18 +431,18 @@ PDF VIEWER STYLE
 
         justify-content: center;
 
-        background: #f4f5f7;
+        background: #e7e8eb;
 
-        border-radius: 10px;
+        border-radius: 8px;
     }
 
 
-    .pdf-error i {
+    .pdf-error-icon {
+        margin-bottom: 15px;
+    }
 
-        display: block;
 
-        margin-bottom: 20px;
-
+    .pdf-error-icon i {
         font-size: 55px;
 
         color: #dc3545;
@@ -496,29 +450,24 @@ PDF VIEWER STYLE
 
 
     .pdf-error h4 {
+        margin-bottom: 8px;
 
-        margin-bottom: 10px;
+        font-size: 20px;
     }
 
 
     .pdf-error p {
-
         color: #777;
 
         margin-bottom: 20px;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | NAVIGATION
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   NAVIGASI
+   ========================================================= */
 
     .pdf-navigation {
-
-        margin-top: 20px;
-
         display: flex;
 
         align-items: center;
@@ -526,16 +475,17 @@ PDF VIEWER STYLE
         justify-content: space-between;
 
         gap: 20px;
+
+        padding: 16px 4px 2px;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | NAVIGATION BUTTON
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   BUTTON NAVIGASI
+   ========================================================= */
 
     .pdf-nav-btn {
+        min-width: 145px;
 
         border: none;
 
@@ -545,11 +495,11 @@ PDF VIEWER STYLE
 
         color: #ffffff;
 
-        padding: 12px 22px;
+        padding: 11px 18px;
 
-        border-radius: 8px;
+        border-radius: 7px;
 
-        font-size: 15px;
+        font-size: 14px;
 
         font-weight: 600;
 
@@ -559,33 +509,27 @@ PDF VIEWER STYLE
 
         justify-content: center;
 
-        gap: 9px;
+        gap: 8px;
 
         cursor: pointer;
 
-        transition: all .3s ease;
+        transition:
+            background 0.25s ease,
+            transform 0.25s ease;
     }
 
 
     .pdf-nav-btn:hover {
-
         background: #5931d9;
 
-        transform: translateY(-2px);
+        transform: translateY(-1px);
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | DISABLED BUTTON
-    |--------------------------------------------------------------------------
-    */
-
     .pdf-nav-btn:disabled {
+        background: #b9bcc2;
 
-        background: #adb5bd;
-
-        opacity: .6;
+        opacity: 0.65;
 
         cursor: not-allowed;
 
@@ -593,14 +537,11 @@ PDF VIEWER STYLE
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | PAGE INFO
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   INFORMASI HALAMAN
+   ========================================================= */
 
     .pdf-page-info {
-
         display: flex;
 
         align-items: center;
@@ -609,41 +550,63 @@ PDF VIEWER STYLE
 
         gap: 7px;
 
-        color: #555;
+        color: #666;
 
-        font-size: 16px;
+        font-size: 14px;
 
         white-space: nowrap;
     }
 
 
     .pdf-page-info strong {
+        display: inline-flex;
 
-        color: #111;
+        align-items: center;
+
+        justify-content: center;
+
+        min-width: 30px;
+
+        height: 30px;
+
+        padding: 0 7px;
+
+        background: #ffffff;
+
+        border: 1px solid #ddd;
+
+        border-radius: 6px;
+
+        color: #222;
 
         font-weight: 700;
-
-        min-width: 20px;
-
-        text-align: center;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | EMPTY STATE
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   DOWNLOAD
+   ========================================================= */
+
+    .tupoksi-download {
+        margin-top: 20px;
+    }
+
+
+    /* =========================================================
+   EMPTY
+   ========================================================= */
+
+    .tupoksi-empty {
+        padding: 70px 20px;
+    }
+
 
     .tupoksi-empty-icon {
+        width: 85px;
 
-        width: 90px;
+        height: 85px;
 
-        height: 90px;
-
-        margin-left: auto;
-
-        margin-right: auto;
+        margin: 0 auto 22px;
 
         display: flex;
 
@@ -651,108 +614,119 @@ PDF VIEWER STYLE
 
         justify-content: center;
 
-        background: #f1f3f5;
+        background: #f1f2f4;
 
         border-radius: 50%;
     }
 
 
     .tupoksi-empty-icon i {
-
-        font-size: 45px;
+        font-size: 42px;
 
         color: #adb5bd;
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | TABLET
-    |--------------------------------------------------------------------------
-    */
+    .tupoksi-empty h3 {
+        margin-bottom: 10px;
+
+        font-size: 24px;
+    }
+
+
+    .tupoksi-empty p {
+        color: #777;
+
+        margin: 0;
+    }
+
+
+    /* =========================================================
+   TABLET
+   ========================================================= */
 
     @media (max-width: 991px) {
 
-        .pdf-container {
+        .tupoksi-ppid-section {
+            padding-top: 20px !important;
+        }
 
+        .pdf-container {
             min-height: 600px;
 
-            padding: 15px;
+            padding: 18px;
         }
 
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | MOBILE
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   MOBILE
+   ========================================================= */
 
     @media (max-width: 768px) {
 
-        .tupoksi-pdf-card {
+        .tupoksi-ppid-section {
+            padding-top: 15px !important;
 
-            padding: 10px;
-
-            border-radius: 10px;
+            padding-bottom: 60px !important;
         }
 
+        .tupoksi-heading {
+            margin-bottom: 18px !important;
+        }
+
+        .tupoksi-pdf-card {
+            padding: 8px;
+
+            border-radius: 9px;
+        }
 
         .pdf-container {
-
             min-height: 500px;
 
             padding: 10px;
         }
 
-
         .pdf-navigation {
-
             flex-direction: column;
 
-            gap: 12px;
+            gap: 10px;
+
+            padding-top: 12px;
         }
 
-
         .pdf-page-info {
-
             order: -1;
         }
 
-
         .pdf-nav-btn {
-
             width: 100%;
 
-            padding: 11px 15px;
+            min-width: 0;
         }
 
     }
 
 
-    /*
-    |--------------------------------------------------------------------------
-    | SMALL MOBILE
-    |--------------------------------------------------------------------------
-    */
+    /* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
     @media (max-width: 480px) {
 
-        .pdf-container {
-
-            min-height: 450px;
+        .tupoksi-ppid-section {
+            padding-top: 10px !important;
         }
 
+        .pdf-container {
+            min-height: 430px;
 
-        .pdf-page-info {
-
-            font-size: 14px;
+            padding: 7px;
         }
 
     }
 </style>
-
 
 
 {{-- =========================================================
@@ -765,52 +739,17 @@ PDF.JS
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | PDF CONTAINER
-        |--------------------------------------------------------------------------
-        */
-
         const pdfContainer =
             document.getElementById('pdf-container');
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | JIKA TIDAK ADA DATA PDF
-        |--------------------------------------------------------------------------
-        */
-
         if (!pdfContainer) {
-
             return;
-
         }
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | URL PDF
-        |--------------------------------------------------------------------------
-        |
-        | URL diambil dari:
-        |
-        |
-        | Jadi tidak menggunakan  di JavaScript.
-        |
-        |--------------------------------------------------------------------------
-        */
 
         const pdfUrl =
             pdfContainer.dataset.pdfUrl;
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | ELEMENT
-        |--------------------------------------------------------------------------
-        */
 
         const canvas =
             document.getElementById('pdf-canvas');
@@ -818,30 +757,30 @@ PDF.JS
         const ctx =
             canvas.getContext('2d');
 
+
         const loading =
             document.getElementById('pdf-loading');
+
 
         const errorBox =
             document.getElementById('pdf-error');
 
+
         const prevButton =
             document.getElementById('prev-page');
+
 
         const nextButton =
             document.getElementById('next-page');
 
+
         const pageNumElement =
             document.getElementById('page-num');
+
 
         const pageCountElement =
             document.getElementById('page-count');
 
-
-        /*
-        |--------------------------------------------------------------------------
-        | VARIABLE
-        |--------------------------------------------------------------------------
-        */
 
         let pdfDoc = null;
 
@@ -854,7 +793,7 @@ PDF.JS
 
         /*
         |--------------------------------------------------------------------------
-        | PDF.JS WORKER
+        | PDF WORKER
         |--------------------------------------------------------------------------
         */
 
@@ -875,18 +814,9 @@ PDF.JS
 
             pdfDoc.getPage(num).then(function(page) {
 
-
-                /*
-                | Lebar container
-                */
-
                 const containerWidth =
                     pdfContainer.clientWidth - 50;
 
-
-                /*
-                | Viewport awal
-                */
 
                 const viewport =
                     page.getViewport({
@@ -894,39 +824,19 @@ PDF.JS
                     });
 
 
-                /*
-                | Hitung ukuran berdasarkan container
-                */
-
                 let scale =
                     containerWidth / viewport.width;
 
 
-                /*
-                | Batas minimum
-                */
-
                 if (scale < 0.5) {
-
                     scale = 0.5;
-
                 }
 
 
-                /*
-                | Batas maksimum
-                */
-
-                if (scale > 1.8) {
-
-                    scale = 1.8;
-
+                if (scale > 1.6) {
+                    scale = 1.6;
                 }
 
-
-                /*
-                | Viewport final
-                */
 
                 const scaledViewport =
                     page.getViewport({
@@ -934,20 +844,13 @@ PDF.JS
                     });
 
 
-                /*
-                | Set ukuran canvas
-                */
-
                 canvas.width =
                     scaledViewport.width;
+
 
                 canvas.height =
                     scaledViewport.height;
 
-
-                /*
-                | Render context
-                */
 
                 const renderContext = {
 
@@ -958,10 +861,6 @@ PDF.JS
                 };
 
 
-                /*
-                | Render PDF
-                */
-
                 const renderTask =
                     page.render(renderContext);
 
@@ -970,10 +869,6 @@ PDF.JS
 
                     pageRendering = false;
 
-
-                    /*
-                    | Jika ada halaman menunggu
-                    */
 
                     if (pageNumPending !== null) {
 
@@ -988,17 +883,9 @@ PDF.JS
             });
 
 
-            /*
-            | Update nomor halaman
-            */
-
             pageNumElement.textContent =
                 num;
 
-
-            /*
-            | Update tombol
-            */
 
             updateButtons();
 
@@ -1028,16 +915,14 @@ PDF.JS
 
         /*
         |--------------------------------------------------------------------------
-        | PREVIOUS
+        | PREVIOUS PAGE
         |--------------------------------------------------------------------------
         */
 
         function onPrevPage() {
 
             if (pageNum <= 1) {
-
                 return;
-
             }
 
 
@@ -1050,23 +935,19 @@ PDF.JS
 
         /*
         |--------------------------------------------------------------------------
-        | NEXT
+        | NEXT PAGE
         |--------------------------------------------------------------------------
         */
 
         function onNextPage() {
 
             if (!pdfDoc) {
-
                 return;
-
             }
 
 
             if (pageNum >= pdfDoc.numPages) {
-
                 return;
-
             }
 
 
@@ -1096,17 +977,9 @@ PDF.JS
             }
 
 
-            /*
-            | Halaman pertama
-            */
-
             prevButton.disabled =
                 pageNum <= 1;
 
-
-            /*
-            | Halaman terakhir
-            */
 
             nextButton.disabled =
                 pageNum >= pdfDoc.numPages;
@@ -1126,45 +999,22 @@ PDF.JS
 
             .then(function(pdf) {
 
-
-                /*
-                | Simpan PDF
-                */
-
                 pdfDoc = pdf;
 
-
-                /*
-                | Total halaman
-                */
 
                 pageCountElement.textContent =
                     pdf.numPages;
 
 
-                /*
-                | Hilangkan loading
-                */
-
                 loading.style.display =
                     'none';
 
-
-                /*
-                | Render halaman pertama
-                */
 
                 renderPage(pageNum);
 
             })
 
-
             .catch(function(error) {
-
-
-                /*
-                | Tampilkan error di console
-                */
 
                 console.error(
                     'Gagal memuat PDF:',
@@ -1172,17 +1022,9 @@ PDF.JS
                 );
 
 
-                /*
-                | Hilangkan loading
-                */
-
                 loading.style.display =
                     'none';
 
-
-                /*
-                | Tampilkan error box
-                */
 
                 errorBox.style.display =
                     'flex';
@@ -1192,7 +1034,7 @@ PDF.JS
 
         /*
         |--------------------------------------------------------------------------
-        | BUTTON PREVIOUS
+        | BUTTON EVENTS
         |--------------------------------------------------------------------------
         */
 
@@ -1202,12 +1044,6 @@ PDF.JS
         );
 
 
-        /*
-        |--------------------------------------------------------------------------
-        | BUTTON NEXT
-        |--------------------------------------------------------------------------
-        */
-
         nextButton.addEventListener(
             'click',
             onNextPage
@@ -1216,7 +1052,7 @@ PDF.JS
 
         /*
         |--------------------------------------------------------------------------
-        | KEYBOARD
+        | KEYBOARD NAVIGATION
         |--------------------------------------------------------------------------
         */
 
@@ -1224,21 +1060,12 @@ PDF.JS
             'keydown',
             function(event) {
 
-
-                /*
-                | Arrow kiri
-                */
-
                 if (event.key === 'ArrowLeft') {
 
                     onPrevPage();
 
                 }
 
-
-                /*
-                | Arrow kanan
-                */
 
                 if (event.key === 'ArrowRight') {
 
@@ -1263,20 +1090,17 @@ PDF.JS
             'resize',
             function() {
 
-
                 clearTimeout(resizeTimer);
 
 
                 resizeTimer = setTimeout(
                     function() {
 
-
                         if (pdfDoc) {
 
                             renderPage(pageNum);
 
                         }
-
 
                     },
                     250
@@ -1285,9 +1109,7 @@ PDF.JS
             }
         );
 
-
     });
 </script>
-
 
 @endsection

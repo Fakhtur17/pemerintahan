@@ -8,6 +8,8 @@ use App\Models\TupoksiPpid;
 use App\Models\ProfilPimpinan;
 use App\Models\TentangPpidBagian;
 use App\Models\StrukturPpid;
+use App\Models\Lhkpn;
+use App\Models\AlamatDinas;
 
 class ProfilController extends Controller
 {
@@ -77,11 +79,21 @@ class ProfilController extends Controller
 
     public function lhkpn()
     {
-        return view('pages.profil.lhkpn');
+        $lhkpn = Lhkpn::latest('tanggal_upload')->get();
+
+        return view(
+            'pages.profil.lhkpn-dinas',
+            compact('lhkpn')
+        );
     }
 
     public function alamatDinas()
     {
-        return view('pages.profil.alamat-dinas');
+        $alamatDinas = AlamatDinas::latest()->first();
+
+        return view(
+            'pages.profil.alamat-dinas',
+            compact('alamatDinas')
+        );
     }
 }
