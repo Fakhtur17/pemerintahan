@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models\InformasiPublik\InformasiBerkala;
+namespace App\Models\InformasiPublik\InformasiDikecualikan;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Storage;
 
-class DataInformasiBerkala extends Model
+class DataInformasiDikecualikan extends Model
 {
-    protected $table = 'data_informasi_berkala';
+    protected $table = 'data_informasi_dikecualikan';
 
     protected $fillable = [
-        'jenis_informasi_berkala_id',
+        'jenis_informasi_dikecualikan_id',
         'tahun',
         'nama_skpd',
         'tanggal_upload',
@@ -30,8 +30,8 @@ class DataInformasiBerkala extends Model
     public function jenis(): BelongsTo
     {
         return $this->belongsTo(
-            JenisInformasiBerkala::class,
-            'jenis_informasi_berkala_id'
+            JenisInformasiDikecualikan::class,
+            'jenis_informasi_dikecualikan_id'
         );
     }
 

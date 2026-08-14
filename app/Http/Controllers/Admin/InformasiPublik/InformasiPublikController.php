@@ -4,33 +4,59 @@ namespace App\Http\Controllers\Admin\InformasiPublik;
 
 use App\Http\Controllers\Controller;
 use App\Models\InformasiPublik\InformasiBerkala\JenisInformasiBerkala;
+use App\Models\InformasiPublik\InformasiSertaMerta\JenisInformasiSertaMerta;
+use App\Models\InformasiPublik\InformasiDikecualikan\JenisInformasiDikecualikan;
 
 class InformasiPublikController extends Controller
 {
     public function index()
     {
+        $jumlahInformasiBerkala =
+            JenisInformasiBerkala::count();
+
+        $jumlahInformasiSertaMerta =
+            JenisInformasiSertaMerta::count();
+
+        $jumlahInformasiDikecualikan =
+            JenisInformasiDikecualikan::count();
+
         $kategori = [
             [
                 'nama' => 'Informasi Berkala',
-                'jumlah' => JenisInformasiBerkala::count(),
-                'route' => 'admin.informasi-publik.informasi-berkala.index',
+
+                'jumlah' =>
+                $jumlahInformasiBerkala,
+
+                'route' =>
+                'admin.informasi-publik.informasi-berkala.index',
             ],
 
             [
                 'nama' => 'Informasi Serta Merta',
-                'jumlah' => 0,
-                'route' => '#',
+
+                'jumlah' =>
+                $jumlahInformasiSertaMerta,
+
+                'route' =>
+                'admin.informasi-publik.informasi-serta-merta.index',
             ],
 
             [
                 'nama' => 'Informasi Dikecualikan',
-                'jumlah' => 0,
-                'route' => '#',
+
+                'jumlah' =>
+                $jumlahInformasiDikecualikan,
+
+                'route' =>
+                'admin.informasi-publik.informasi-dikecualikan.index',
             ],
 
             [
-                'nama' => 'Informasi Tersedia Setiap Saat',
+                'nama' =>
+                'Informasi Tersedia Setiap Saat',
+
                 'jumlah' => 0,
+
                 'route' => '#',
             ],
         ];

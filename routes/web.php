@@ -35,6 +35,12 @@ use App\Http\Controllers\Admin\InformasiPublik\InformasiPublikController as Admi
 use App\Http\Controllers\Admin\InformasiPublik\InformasiBerkala\InformasiBerkalaController;
 use App\Http\Controllers\Admin\InformasiPublik\InformasiBerkala\JenisInformasiBerkalaController;
 use App\Http\Controllers\Admin\InformasiPublik\InformasiBerkala\DataInformasiBerkalaController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiSertaMerta\InformasiSertaMertaController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiSertaMerta\JenisInformasiSertaMertaController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiSertaMerta\DataInformasiSertaMertaController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\InformasiDikecualikanController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\JenisInformasiDikecualikanController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\DataInformasiDikecualikanController;
 use App\Http\Controllers\Admin\Layanan\SopPpidController;
 use App\Http\Controllers\Admin\Layanan\AlurPermohonanController;
 use App\Http\Controllers\Admin\Layanan\DaftarPermohonanController;
@@ -357,6 +363,149 @@ Route::middleware('auth')
 
 
                 /*
+|--------------------------------------------------------------------------
+| INFORMASI SERTA MERTA
+|--------------------------------------------------------------------------
+*/
+
+                Route::prefix('informasi-serta-merta')
+                    ->name('informasi-serta-merta.')
+                    ->group(function () {
+
+                        /*
+        |--------------------------------------------------------------------------
+        | Halaman daftar jenis
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/',
+                            [
+                                InformasiSertaMertaController::class,
+                                'index'
+                            ]
+                        )->name('index');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | CRUD JENIS INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/create',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'create'
+                            ]
+                        )->name('jenis.create');
+
+                        Route::post(
+                            '/jenis',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'store'
+                            ]
+                        )->name('jenis.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'show'
+                            ]
+                        )->name('jenis.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}/edit',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'edit'
+                            ]
+                        )->name('jenis.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiSertaMerta}',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'update'
+                            ]
+                        )->name('jenis.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiSertaMerta}',
+                            [
+                                JenisInformasiSertaMertaController::class,
+                                'destroy'
+                            ]
+                        )->name('jenis.destroy');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | DATA INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}/data',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'index'
+                            ]
+                        )->name('data.index');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}/data/create',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'create'
+                            ]
+                        )->name('data.create');
+
+                        Route::post(
+                            '/jenis/{jenisInformasiSertaMerta}/data',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'store'
+                            ]
+                        )->name('data.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}/data/{dataInformasiSertaMerta}',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'show'
+                            ]
+                        )->name('data.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiSertaMerta}/data/{dataInformasiSertaMerta}/edit',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'edit'
+                            ]
+                        )->name('data.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiSertaMerta}/data/{dataInformasiSertaMerta}',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'update'
+                            ]
+                        )->name('data.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiSertaMerta}/data/{dataInformasiSertaMerta}',
+                            [
+                                DataInformasiSertaMertaController::class,
+                                'destroy'
+                            ]
+                        )->name('data.destroy');
+                    });
+                /*
+                
         |--------------------------------------------------------------------------
         | INFORMASI BERKALA
         |--------------------------------------------------------------------------
@@ -434,6 +583,148 @@ Route::middleware('auth')
                                     'destroy'
                                 ])->name('data.destroy');
                             });
+                    });
+                /*
+|--------------------------------------------------------------------------
+| INFORMASI DIKECUALIKAN
+|--------------------------------------------------------------------------
+*/
+
+                Route::prefix('informasi-dikecualikan')
+                    ->name('informasi-dikecualikan.')
+                    ->group(function () {
+
+                        /*
+        |--------------------------------------------------------------------------
+        | HALAMAN DAFTAR JENIS
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/',
+                            [
+                                InformasiDikecualikanController::class,
+                                'index'
+                            ]
+                        )->name('index');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | CRUD JENIS INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/create',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'create'
+                            ]
+                        )->name('jenis.create');
+
+                        Route::post(
+                            '/jenis',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'store'
+                            ]
+                        )->name('jenis.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'show'
+                            ]
+                        )->name('jenis.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}/edit',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'edit'
+                            ]
+                        )->name('jenis.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiDikecualikan}',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'update'
+                            ]
+                        )->name('jenis.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiDikecualikan}',
+                            [
+                                JenisInformasiDikecualikanController::class,
+                                'destroy'
+                            ]
+                        )->name('jenis.destroy');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | DATA INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}/data',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'index'
+                            ]
+                        )->name('data.index');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}/data/create',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'create'
+                            ]
+                        )->name('data.create');
+
+                        Route::post(
+                            '/jenis/{jenisInformasiDikecualikan}/data',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'store'
+                            ]
+                        )->name('data.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}/data/{dataInformasiDikecualikan}',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'show'
+                            ]
+                        )->name('data.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiDikecualikan}/data/{dataInformasiDikecualikan}/edit',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'edit'
+                            ]
+                        )->name('data.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiDikecualikan}/data/{dataInformasiDikecualikan}',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'update'
+                            ]
+                        )->name('data.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiDikecualikan}/data/{dataInformasiDikecualikan}',
+                            [
+                                DataInformasiDikecualikanController::class,
+                                'destroy'
+                            ]
+                        )->name('data.destroy');
                     });
             });
 

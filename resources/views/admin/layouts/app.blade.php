@@ -134,13 +134,15 @@
                         <ul class="nav flex-column">
                             <li><a href="{{ route('admin.informasi-publik.informasi-berkala.index') }}" class="nav-link">Informasi Berkala</a></li>
                             <li>
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.informasi-publik.informasi-serta-merta.index') }}"
+                                    class="nav-link">
                                     Serta Merta
                                 </a>
                             </li>
 
                             <li>
-                                <a href="#" class="nav-link">
+                                <a href="{{ route('admin.informasi-publik.informasi-dikecualikan.index') }}"
+                                    class="nav-link">
                                     Dikecualikan
                                 </a>
                             </li>
