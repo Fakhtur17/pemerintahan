@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SopPpid;
+use App\Models\AlurPermohonan;
+
+
 class LayananController extends Controller
 {
     public function index()
@@ -11,12 +15,23 @@ class LayananController extends Controller
 
     public function sopPpid()
     {
-        return view('pages.layanan.sop-ppid');
+        $sop = SopPpid::where('is_active', true)
+            ->latest()
+            ->first();
+
+        return view('pages.layanan.sop-ppid', compact('sop'));
     }
 
     public function alurPermohonan()
     {
-        return view('pages.layanan.alur-permohonan');
+        $alurPermohonan = AlurPermohonan::where('is_active', true)
+            ->latest()
+            ->first();
+
+        return view(
+            'pages.layanan.alur-permohonan',
+            compact('alurPermohonan')
+        );
     }
 
     public function daftarPermohonan()

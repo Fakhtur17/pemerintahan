@@ -3,9 +3,9 @@
 'footerVariant' => 'default',
 ])
 
-@section('title', ($alurPermohonan->judul ?? 'Alur Permohonan Informasi Publik') . ' | Layanan PPID')
+@section('title', $regulasi->judul . ' | Regulasi PPID')
 
-@section('meta_description', $alurPermohonan->judul ?? 'Alur Permohonan Informasi Publik Kabupaten Brebes')
+@section('meta_description', $regulasi->judul)
 
 @section('content')
 
@@ -13,7 +13,6 @@
 {{-- =========================================================
     BREADCRUMB
 ========================================================= --}}
-
 <div class="breadcumb-section fix">
 
     <div
@@ -39,11 +38,11 @@
                 <div class="page-heading">
 
                     <h1>
-                        Alur Permohonan
+                        {{ $regulasi->judul }}
                     </h1>
 
                     <p>
-                        Alur Permohonan Informasi Publik Kabupaten Brebes
+                        Dokumen Regulasi PPID Kabupaten Brebes
                     </p>
 
                 </div>
@@ -60,56 +59,34 @@
 {{-- =========================================================
     PDF SECTION
 ========================================================= --}}
-
 <section class="regulasi-pdf-section">
 
     <div class="container">
-
-        {{-- KEMBALI --}}
-
-        <div class="back-button-wrapper">
-
-            <a
-                href="{{ route('layanan.index') }}"
-                class="back-button">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-                Kembali ke Layanan PPID
-
-            </a>
-
-        </div>
-
-
-        @if($alurPermohonan)
 
         <div class="regulasi-pdf-wrapper">
 
 
             {{-- =================================================
-                    HEADER PDF
-                ================================================== --}}
-
+                HEADER PDF
+            ================================================== --}}
             <div class="regulasi-pdf-header">
 
                 <div class="regulasi-pdf-title">
 
                     <span class="pdf-label">
-                        DOKUMEN ALUR PERMOHONAN
+                        DOKUMEN REGULASI
                     </span>
 
                     <h2>
-                        {{ $alurPermohonan->judul }}
+                        {{ $regulasi->judul }}
                     </h2>
 
                 </div>
 
 
-                {{-- BUKA PDF --}}
-
+                {{-- BUTTON BUKA PDF --}}
                 <a
-                    href="{{ asset('storage/' . $alurPermohonan->file_pdf) }}"
+                    href="{{ asset('storage/' . $regulasi->file_pdf) }}"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="pdf-button">
@@ -124,11 +101,11 @@
 
 
             {{-- =================================================
-                    PDF VIEWER
-                ================================================== --}}
-
+                PDF VIEWER
+            ================================================== --}}
             <div class="pdf-viewer">
 
+                {{-- LOADING --}}
                 <div
                     id="pdf-loading"
                     class="pdf-loading">
@@ -142,12 +119,14 @@
                 </div>
 
 
+                {{-- SEMUA HALAMAN PDF --}}
                 <div
                     id="pdf-pages"
                     class="pdf-pages">
                 </div>
 
 
+                {{-- ERROR --}}
                 <div
                     id="pdf-error"
                     class="pdf-error"
@@ -160,7 +139,7 @@
                     </p>
 
                     <a
-                        href="{{ asset('storage/' . $alurPermohonan->file_pdf) }}"
+                        href="{{ asset('storage/' . $regulasi->file_pdf) }}"
                         target="_blank"
                         rel="noopener noreferrer"
                         class="pdf-error-button">
@@ -177,53 +156,35 @@
 
         </div>
 
-        @else
-
-        {{-- =================================================
-                JIKA BELUM ADA ALUR PERMOHONAN
-            ================================================== --}}
-
-        <div class="empty-document">
-
-            <i class="fa-solid fa-file-circle-xmark"></i>
-
-            <h3>
-                Alur Permohonan Belum Tersedia
-            </h3>
-
-            <p>
-                Dokumen Alur Permohonan Informasi Publik Kabupaten Brebes
-                belum tersedia.
-            </p>
-
-            <a
-                href="{{ route('layanan.index') }}"
-                class="pdf-button">
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-                Kembali ke Layanan
-
-            </a>
-
-        </div>
-
-        @endif
-
     </div>
 
 </section>
 
 
-@if($alurPermohonan)
-
+{{-- =========================================================
+    PDF.JS
+========================================================= --}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
 
+        /*
+        |--------------------------------------------------------------------------
+        | URL PDF
+        |--------------------------------------------------------------------------
+        */
+
         const pdfUrl =
-            "{{ asset('storage/' . $alurPermohonan->file_pdf) }}";
+            "{{ asset('storage/' . $regulasi->file_pdf) }}";
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | ELEMENT
+        |--------------------------------------------------------------------------
+        */
 
         const pagesContainer =
             document.getElementById('pdf-pages');
@@ -235,9 +196,21 @@
             document.getElementById('pdf-error');
 
 
+        /*
+        |--------------------------------------------------------------------------
+        | PDF.JS WORKER
+        |--------------------------------------------------------------------------
+        */
+
         pdfjsLib.GlobalWorkerOptions.workerSrc =
             'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | LOAD PDF
+        |--------------------------------------------------------------------------
+        */
 
         pdfjsLib.getDocument({
 
@@ -251,7 +224,21 @@
 
             .then(async function(pdf) {
 
-                loadingElement.style.display = 'none';
+                /*
+                |--------------------------------------------------------------------------
+                | Hilangkan loading
+                |--------------------------------------------------------------------------
+                */
+
+                loadingElement.style.display =
+                    'none';
+
+
+                /*
+                |--------------------------------------------------------------------------
+                | Render halaman satu per satu
+                |--------------------------------------------------------------------------
+                */
 
                 for (
                     let pageNumber = 1; pageNumber <= pdf.numPages; pageNumber++
@@ -273,20 +260,40 @@
                     error
                 );
 
-                loadingElement.style.display = 'none';
+                loadingElement.style.display =
+                    'none';
 
-                errorElement.style.display = 'flex';
+                errorElement.style.display =
+                    'flex';
 
             });
 
+
+        /*
+        |--------------------------------------------------------------------------
+        | RENDER SATU HALAMAN
+        |--------------------------------------------------------------------------
+        */
 
         async function renderPage(pdf, pageNumber) {
 
             try {
 
+                /*
+                |----------------------------------------------------------------------
+                | Ambil halaman
+                |----------------------------------------------------------------------
+                */
+
                 const page =
                     await pdf.getPage(pageNumber);
 
+
+                /*
+                |----------------------------------------------------------------------
+                | Ukuran asli PDF
+                |----------------------------------------------------------------------
+                */
 
                 const originalViewport =
                     page.getViewport({
@@ -294,14 +301,45 @@
                     });
 
 
+                /*
+                |----------------------------------------------------------------------
+                | Lebar container
+                |----------------------------------------------------------------------
+                |
+                | PDF mengikuti 100% lebar area.
+                |
+                */
+
                 const containerWidth =
                     pagesContainer.clientWidth;
 
 
+                /*
+                |----------------------------------------------------------------------
+                | Target width
+                |----------------------------------------------------------------------
+                */
+
+                const targetWidth =
+                    containerWidth;
+
+
+                /*
+                |----------------------------------------------------------------------
+                | Scale
+                |----------------------------------------------------------------------
+                */
+
                 const scale =
-                    containerWidth /
+                    targetWidth /
                     originalViewport.width;
 
+
+                /*
+                |----------------------------------------------------------------------
+                | Viewport
+                |----------------------------------------------------------------------
+                */
 
                 const viewport =
                     page.getViewport({
@@ -309,12 +347,27 @@
                     });
 
 
+                /*
+                |----------------------------------------------------------------------
+                | DEVICE PIXEL RATIO
+                |----------------------------------------------------------------------
+                |
+                | Dibatasi supaya rendering tidak terlalu berat.
+                |
+                */
+
                 const devicePixelRatio =
                     Math.min(
                         window.devicePixelRatio || 1,
                         1.5
                     );
 
+
+                /*
+                |----------------------------------------------------------------------
+                | CANVAS
+                |----------------------------------------------------------------------
+                */
 
                 const canvas =
                     document.createElement('canvas');
@@ -328,12 +381,15 @@
                     );
 
 
+                /*
+                | Ukuran canvas sebenarnya
+                */
+
                 canvas.width =
                     Math.floor(
                         viewport.width *
                         devicePixelRatio
                     );
-
 
                 canvas.height =
                     Math.floor(
@@ -342,9 +398,12 @@
                     );
 
 
+                /*
+                | Ukuran visual
+                */
+
                 canvas.style.width =
                     viewport.width + 'px';
-
 
                 canvas.style.height =
                     viewport.height + 'px';
@@ -353,6 +412,12 @@
                 canvas.className =
                     'pdf-page-canvas';
 
+
+                /*
+                |----------------------------------------------------------------------
+                | WRAPPER HALAMAN
+                |----------------------------------------------------------------------
+                */
 
                 const pageWrapper =
                     document.createElement('div');
@@ -366,12 +431,21 @@
                     pageNumber;
 
 
-                pageWrapper.appendChild(canvas);
+                pageWrapper.appendChild(
+                    canvas
+                );
+
 
                 pagesContainer.appendChild(
                     pageWrapper
                 );
 
+
+                /*
+                |----------------------------------------------------------------------
+                | RENDER PDF
+                |----------------------------------------------------------------------
+                */
 
                 await page.render({
 
@@ -393,6 +467,12 @@
                 }).promise;
 
 
+                /*
+                |----------------------------------------------------------------------
+                | Cleanup
+                |----------------------------------------------------------------------
+                */
+
                 page.cleanup();
 
             } catch (error) {
@@ -411,10 +491,15 @@
     });
 </script>
 
-@endif
 
-
+{{-- =========================================================
+    STYLE
+========================================================= --}}
 <style>
+    /* =========================================================
+   SECTION
+========================================================= */
+
     .regulasi-pdf-section {
 
         padding: 55px 0 90px;
@@ -424,55 +509,9 @@
     }
 
 
-    .back-button-wrapper {
-
-        display: flex;
-
-        justify-content: center;
-
-        margin-bottom: 25px;
-
-    }
-
-
-    .back-button {
-
-        display: inline-flex;
-
-        align-items: center;
-
-        gap: 7px;
-
-        padding: 11px 18px;
-
-        background: #0d6efd;
-
-        color: #ffffff;
-
-        border-radius: 6px;
-
-        text-decoration: none;
-
-        font-size: 14px;
-
-        font-weight: 500;
-
-        transition: .25s ease;
-
-    }
-
-
-    .back-button:hover {
-
-        color: #ffffff;
-
-        transform: translateY(-2px);
-
-        box-shadow:
-            0 8px 20px rgba(13, 110, 253, .2);
-
-    }
-
+    /* =========================================================
+   WRAPPER
+========================================================= */
 
     .regulasi-pdf-wrapper {
 
@@ -482,6 +521,10 @@
 
     }
 
+
+    /* =========================================================
+   HEADER PDF
+========================================================= */
 
     .regulasi-pdf-header {
 
@@ -500,12 +543,20 @@
     }
 
 
+    /* =========================================================
+   TITLE
+========================================================= */
+
     .regulasi-pdf-title {
 
         min-width: 0;
 
     }
 
+
+    /* =========================================================
+   LABEL
+========================================================= */
 
     .pdf-label {
 
@@ -524,6 +575,10 @@
     }
 
 
+    /* =========================================================
+   TITLE
+========================================================= */
+
     .regulasi-pdf-header h2 {
 
         margin: 0;
@@ -536,6 +591,10 @@
 
     }
 
+
+    /* =========================================================
+   BUTTON
+========================================================= */
 
     .pdf-button {
 
@@ -578,6 +637,10 @@
     }
 
 
+    /* =========================================================
+   PDF VIEWER
+========================================================= */
+
     .pdf-viewer {
 
         width: 100%;
@@ -598,6 +661,10 @@
     }
 
 
+    /* =========================================================
+   PDF PAGES
+========================================================= */
+
     .pdf-pages {
 
         width: 100%;
@@ -613,6 +680,10 @@
     }
 
 
+    /* =========================================================
+   SATU HALAMAN PDF
+========================================================= */
+
     .pdf-page {
 
         width: 100%;
@@ -625,8 +696,14 @@
 
         overflow: hidden;
 
+        box-shadow: none;
+
     }
 
+
+    /* =========================================================
+   CANVAS PDF
+========================================================= */
 
     .pdf-page-canvas {
 
@@ -638,6 +715,10 @@
 
     }
 
+
+    /* =========================================================
+   LOADING
+========================================================= */
 
     .pdf-loading {
 
@@ -660,6 +741,10 @@
     }
 
 
+    /* =========================================================
+   SPINNER
+========================================================= */
+
     .pdf-spinner {
 
         width: 38px;
@@ -681,15 +766,23 @@
     @keyframes pdfSpin {
 
         from {
+
             transform: rotate(0deg);
+
         }
 
         to {
+
             transform: rotate(360deg);
+
         }
 
     }
 
+
+    /* =========================================================
+   ERROR
+========================================================= */
 
     .pdf-error {
 
@@ -728,6 +821,10 @@
     }
 
 
+    /* =========================================================
+   ERROR BUTTON
+========================================================= */
+
     .pdf-error-button {
 
         display: inline-flex;
@@ -753,55 +850,47 @@
     }
 
 
-    .empty-document {
+    .pdf-error-button:hover {
 
-        min-height: 400px;
-
-        display: flex;
-
-        align-items: center;
-
-        justify-content: center;
-
-        flex-direction: column;
-
-        text-align: center;
-
-        gap: 12px;
-
-        border: 1px solid #e5e7eb;
-
-        border-radius: 12px;
+        color: #ffffff;
 
     }
 
 
-    .empty-document>i {
+    /* =========================================================
+   TABLET
+========================================================= */
 
-        font-size: 50px;
+    @media (max-width: 991px) {
 
-        color: #9ca3af;
+        .regulasi-pdf-section {
+
+            padding: 45px 0 75px;
+
+        }
+
+
+        .pdf-pages {
+
+            gap: 20px;
+
+        }
+
+
+        .pdf-page {
+
+            width: 100%;
+
+            max-width: 100%;
+
+        }
 
     }
 
 
-    .empty-document h3 {
-
-        margin: 0;
-
-        color: #111827;
-
-    }
-
-
-    .empty-document p {
-
-        margin: 0 0 10px;
-
-        color: #6b7280;
-
-    }
-
+    /* =========================================================
+   MOBILE
+========================================================= */
 
     @media (max-width: 767px) {
 
@@ -842,6 +931,22 @@
         .pdf-viewer {
 
             border-radius: 8px;
+
+        }
+
+
+        .pdf-pages {
+
+            gap: 15px;
+
+        }
+
+
+        .pdf-page {
+
+            width: 100%;
+
+            max-width: 100%;
 
         }
 

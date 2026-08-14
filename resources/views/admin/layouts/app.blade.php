@@ -115,8 +115,8 @@
                     </a>
                     <div class="collapse submenu {{ request()->routeIs('admin.layanan.*') ? 'show' : '' }}" id="layananMenu">
                         <ul class="nav flex-column">
-                            <li><a href="{{ route('admin.layanan.sop-ppid') }}" class="nav-link">SOP Aplikasi PPID</a></li>
-                            <li><a href="{{ route('admin.layanan.alur-permohonan') }}" class="nav-link">Alur Permohonan</a></li>
+                            <li><a href="{{ route('admin.layanan.sop-ppid.index') }}" class="nav-link">SOP Aplikasi PPID</a></li>
+                            <li><a href="{{ route('admin.layanan.alur-permohonan.index') }}" class="nav-link">Alur Permohonan</a></li>
                             <li><a href="{{ route('admin.layanan.daftar-permohonan') }}" class="nav-link">Daftar Permohonan</a></li>
                             <li><a href="{{ route('admin.layanan.formulir') }}" class="nav-link">Formulir Permohonan</a></li>
                         </ul>
@@ -132,10 +132,24 @@
                     </a>
                     <div class="collapse submenu {{ request()->routeIs('admin.informasi-publik.*') ? 'show' : '' }}" id="infoPublikMenu">
                         <ul class="nav flex-column">
-                            <li><a href="{{ route('admin.informasi-publik.berkala') }}" class="nav-link">Informasi Berkala</a></li>
-                            <li><a href="{{ route('admin.informasi-publik.serta-merta') }}" class="nav-link">Serta Merta</a></li>
-                            <li><a href="{{ route('admin.informasi-publik.dikecualikan') }}" class="nav-link">Dikecualikan</a></li>
-                            <li><a href="{{ route('admin.informasi-publik.setiap-saat') }}" class="nav-link">Setiap Saat</a></li>
+                            <li><a href="{{ route('admin.informasi-publik.informasi-berkala.index') }}" class="nav-link">Informasi Berkala</a></li>
+                            <li>
+                                <a href="#" class="nav-link">
+                                    Serta Merta
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link">
+                                    Dikecualikan
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="nav-link">
+                                    Setiap Saat
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

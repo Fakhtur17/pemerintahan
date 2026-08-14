@@ -1,56 +1,44 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Regulasi PPID')
+@section('title', 'SOP PPID')
 
 @section('content')
 
 <div class="container-fluid">
 
-    {{-- HEADER --}}
-
     <div class="d-flex justify-content-between align-items-center mb-4">
 
         <div>
-
             <h4 class="mb-1">
-                Regulasi PPID
+                SOP PPID
             </h4>
 
             <p class="text-muted mb-0">
-                Kelola dokumen regulasi PPID Kabupaten Brebes.
+                Kelola dokumen SOP PPID Kabupaten Brebes.
             </p>
-
         </div>
 
         <a
-            href="{{ route('admin.regulasi.create') }}"
+            href="{{ route('admin.layanan.sop-ppid.create') }}"
             class="btn btn-primary">
-            <i class="fas fa-plus me-1"></i>
-            Tambah Regulasi
+
+            <i class="bi bi-plus-lg"></i>
+
+            Tambah SOP
+
         </a>
 
     </div>
 
 
-    {{-- ALERT SUCCESS --}}
-
     @if(session('success'))
 
-    <div class="alert alert-success alert-dismissible fade show">
-
+    <div class="alert alert-success">
         {{ session('success') }}
-
-        <button
-            type="button"
-            class="btn-close"
-            data-bs-dismiss="alert"></button>
-
     </div>
 
     @endif
 
-
-    {{-- TABLE --}}
 
     <div class="card border-0 shadow-sm">
 
@@ -58,33 +46,29 @@
 
             <div class="table-responsive">
 
-                <table class="table table-hover align-middle">
+                <table class="table align-middle">
 
                     <thead>
 
                         <tr>
 
-                            <th width="70">
+                            <th width="60">
                                 No
                             </th>
 
-                            <th width="100">
-                                Urutan
+                            <th>
+                                Judul
                             </th>
 
                             <th>
-                                Judul Regulasi
+                                File PDF
                             </th>
 
-                            <th width="130">
+                            <th>
                                 Status
                             </th>
 
-                            <th width="170">
-                                File
-                            </th>
-
-                            <th width="180">
+                            <th width="200">
                                 Aksi
                             </th>
 
@@ -94,29 +78,40 @@
 
                     <tbody>
 
-                        @forelse($regulasis as $index => $regulasi)
+                        @forelse($sops as $sop)
 
                         <tr>
 
                             <td>
-                                {{ $index + 1 }}
-                            </td>
-
-                            <td>
-                                {{ $regulasi->urutan }}
+                                {{ $sops->firstItem() + $loop->index }}
                             </td>
 
                             <td>
 
-                                <div class="fw-semibold">
-                                    {{ $regulasi->judul }}
-                                </div>
+                                <strong>
+                                    {{ $sop->judul }}
+                                </strong>
 
                             </td>
 
                             <td>
 
-                                @if($regulasi->status)
+                                <a
+                                    href="{{ asset('storage/' . $sop->file_pdf) }}"
+                                    target="_blank"
+                                    class="btn btn-sm btn-outline-danger">
+
+                                    <i class="bi bi-file-earmark-pdf"></i>
+
+                                    Lihat PDF
+
+                                </a>
+
+                            </td>
+
+                            <td>
+
+                                @if($sop->is_active)
 
                                 <span class="badge bg-success">
                                     Aktif
@@ -134,30 +129,21 @@
 
                             <td>
 
-                                <a
-                                    href="{{ asset('storage/' . $regulasi->file_pdf) }}"
-                                    target="_blank"
-                                    class="btn btn-sm btn-outline-danger">
-                                    <i class="fas fa-file-pdf"></i>
-                                    Lihat PDF
-                                </a>
-
-                            </td>
-
-                            <td>
-
                                 <div class="d-flex gap-2">
 
                                     <a
-                                        href="{{ route('admin.regulasi.edit', $regulasi->id) }}"
+                                        href="{{ route('admin.layanan.sop-ppid.edit', $sop) }}"
                                         class="btn btn-sm btn-warning">
-                                        <i class="fas fa-edit"></i>
+
+                                        <i class="bi bi-pencil"></i>
+
                                     </a>
 
+
                                     <form
-                                        action="{{ route('admin.regulasi.destroy', $regulasi->id) }}"
+                                        action="{{ route('admin.layanan.sop-ppid.destroy', $sop) }}"
                                         method="POST"
-                                        onsubmit="return confirm('Yakin ingin menghapus regulasi ini?')">
+                                        onsubmit="return confirm('Yakin ingin menghapus SOP ini?')">
 
                                         @csrf
 
@@ -166,7 +152,9 @@
                                         <button
                                             type="submit"
                                             class="btn btn-sm btn-danger">
-                                            <i class="fas fa-trash"></i>
+
+                                            <i class="bi bi-trash"></i>
+
                                         </button>
 
                                     </form>
@@ -182,19 +170,14 @@
                         <tr>
 
                             <td
-                                colspan="6"
+                                colspan="5"
                                 class="text-center py-5">
 
-                                <div class="text-muted">
+                                <i class="bi bi-file-earmark-pdf fs-1 text-muted"></i>
 
-                                    <i
-                                        class="fas fa-file-pdf fa-2x mb-3"></i>
-
-                                    <div>
-                                        Belum ada data regulasi.
-                                    </div>
-
-                                </div>
+                                <p class="text-muted mt-2 mb-0">
+                                    Belum ada dokumen SOP PPID.
+                                </p>
 
                             </td>
 
@@ -205,6 +188,13 @@
                     </tbody>
 
                 </table>
+
+            </div>
+
+
+            <div class="mt-3">
+
+                {{ $sops->links() }}
 
             </div>
 
