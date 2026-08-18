@@ -180,11 +180,15 @@ TABEL LHKPN
     }
 
     .dataTables_wrapper .dataTables_info {
+        float: none !important;
         padding-top: 15px;
+        margin-bottom: 10px;
     }
 
     .dataTables_wrapper .dataTables_paginate {
-        padding-top: 10px;
+        float: none !important;
+        text-align: center !important;
+        padding-top: 5px !important;
     }
 </style>
 

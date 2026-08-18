@@ -148,7 +148,10 @@
                             </li>
 
                             <li>
-                                <a href="#" class="nav-link">
+                                <a href="{{ route(
+        'admin.informasi-publik.informasi-tersedia-setiap-saat.index'
+    ) }}"
+                                    class="nav-link">
                                     Setiap Saat
                                 </a>
                             </li>

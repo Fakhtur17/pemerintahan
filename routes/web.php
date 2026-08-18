@@ -41,6 +41,9 @@ use App\Http\Controllers\Admin\InformasiPublik\InformasiSertaMerta\DataInformasi
 use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\InformasiDikecualikanController;
 use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\JenisInformasiDikecualikanController;
 use App\Http\Controllers\Admin\InformasiPublik\InformasiDikecualikan\DataInformasiDikecualikanController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiTersediaSetiapSaat\InformasiTersediaSetiapSaatController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiTersediaSetiapSaat\JenisInformasiTersediaSetiapSaatController;
+use App\Http\Controllers\Admin\InformasiPublik\InformasiTersediaSetiapSaat\DataInformasiTersediaSetiapSaatController;
 use App\Http\Controllers\Admin\Layanan\SopPpidController;
 use App\Http\Controllers\Admin\Layanan\AlurPermohonanController;
 use App\Http\Controllers\Admin\Layanan\DaftarPermohonanController;
@@ -722,6 +725,148 @@ Route::middleware('auth')
                             '/jenis/{jenisInformasiDikecualikan}/data/{dataInformasiDikecualikan}',
                             [
                                 DataInformasiDikecualikanController::class,
+                                'destroy'
+                            ]
+                        )->name('data.destroy');
+                    });
+                /*
+|--------------------------------------------------------------------------
+| INFORMASI TERSEDIA SETIAP SAAT
+|--------------------------------------------------------------------------
+*/
+
+                Route::prefix('informasi-tersedia-setiap-saat')
+                    ->name('informasi-tersedia-setiap-saat.')
+                    ->group(function () {
+
+                        /*
+        |--------------------------------------------------------------------------
+        | INDEX
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/',
+                            [
+                                InformasiTersediaSetiapSaatController::class,
+                                'index'
+                            ]
+                        )->name('index');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | CRUD JENIS INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/create',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'create'
+                            ]
+                        )->name('jenis.create');
+
+                        Route::post(
+                            '/jenis',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'store'
+                            ]
+                        )->name('jenis.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'show'
+                            ]
+                        )->name('jenis.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/edit',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'edit'
+                            ]
+                        )->name('jenis.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'update'
+                            ]
+                        )->name('jenis.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}',
+                            [
+                                JenisInformasiTersediaSetiapSaatController::class,
+                                'destroy'
+                            ]
+                        )->name('jenis.destroy');
+
+
+                        /*
+        |--------------------------------------------------------------------------
+        | DATA INFORMASI
+        |--------------------------------------------------------------------------
+        */
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'index'
+                            ]
+                        )->name('data.index');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data/create',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'create'
+                            ]
+                        )->name('data.create');
+
+                        Route::post(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'store'
+                            ]
+                        )->name('data.store');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data/{dataInformasiTersediaSetiapSaat}',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'show'
+                            ]
+                        )->name('data.show');
+
+                        Route::get(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data/{dataInformasiTersediaSetiapSaat}/edit',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'edit'
+                            ]
+                        )->name('data.edit');
+
+                        Route::put(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data/{dataInformasiTersediaSetiapSaat}',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
+                                'update'
+                            ]
+                        )->name('data.update');
+
+                        Route::delete(
+                            '/jenis/{jenisInformasiTersediaSetiapSaat}/data/{dataInformasiTersediaSetiapSaat}',
+                            [
+                                DataInformasiTersediaSetiapSaatController::class,
                                 'destroy'
                             ]
                         )->name('data.destroy');

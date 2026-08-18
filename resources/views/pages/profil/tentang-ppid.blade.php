@@ -109,7 +109,7 @@ ARTIKEL TENTANG PPID
 
                     <h4 class="article-heading">
                         {{ $item->judul }}
-                    </h4>
+                    </h4> <br>
 
 
                     {{-- =================================================

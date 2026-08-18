@@ -7,7 +7,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('home') }}" class="header-logo">
-                                <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="logo-img">
+                                <img src="{{ asset('assets/images/logo/kec.png') }}" alt="logo-img">
                             </a>
                         </div>
                     </div>
