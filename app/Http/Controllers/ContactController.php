@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactSetting;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -9,46 +10,89 @@ use Illuminate\View\View;
 /**
  * ContactController
  *
- * Menangani halaman kontak (contact.html) beserta proses pengiriman
- * form kontak. Form asli mengirim ke "contact.php" dengan field:
- * name, email2 (email), message.
+ * Menangani halaman kontak publik dan proses
+ * pengiriman form kontak.
  */
 class ContactController extends Controller
 {
     /**
      * Tampilkan halaman kontak.
-     * Route: GET /contact (name: contact.index)
+     *
+     * Route:
+     * GET /contact
+     * name: contact.index
      */
     public function index(): View
     {
-        return view('pages.contact');
+        // Ambil data kontak dari database
+        // Data terbaru akan digunakan pada halaman user.
+        $contact = ContactSetting::latest()->first();
+
+        return view('pages.contact', compact('contact'));
     }
 
     /**
      * Proses pengiriman form kontak.
-     * Route: POST /contact (name: contact.store)
      *
-     * Nama field disesuaikan dengan atribut "name" pada form asli
-     * (name, email2, message) supaya Blade tidak perlu diubah lagi.
+     * Route:
+     * POST /contact
+     * name: contact.store
      */
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name'    => ['required', 'string', 'max:255'],
-            'email2'  => ['required', 'email', 'max:255'],
-            'message' => ['required', 'string', 'max:5000'],
+            'name' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+
+            'email2' => [
+                'required',
+                'email',
+                'max:255',
+            ],
+
+            'message' => [
+                'required',
+                'string',
+                'max:5000',
+            ],
         ], [
-            'name.required'    => 'Nama wajib diisi.',
-            'email2.required'  => 'Email wajib diisi.',
-            'email2.email'     => 'Format email tidak valid.',
-            'message.required' => 'Pesan wajib diisi.',
+            'name.required' =>
+            'Nama wajib diisi.',
+
+            'email2.required' =>
+            'Email wajib diisi.',
+
+            'email2.email' =>
+            'Format email tidak valid.',
+
+            'message.required' =>
+            'Pesan wajib diisi.',
         ]);
 
-        // TODO: kirim email / simpan ke database sesuai kebutuhan, contoh:
-        // Mail::to(config('mail.from.address'))->send(new ContactMessageMail($validated));
+        /*
+        |--------------------------------------------------------------------------
+        | Proses pesan kontak
+        |--------------------------------------------------------------------------
+        |
+        | Untuk sekarang data pesan belum disimpan.
+        | Nanti kalau kamu ingin, kita bisa buat:
+        |
+        | ContactMessage
+        | contact_messages
+        |
+        | sehingga pesan dari masyarakat juga masuk
+        | ke halaman admin.
+        |
+        */
 
         return redirect()
             ->route('contact.index')
-            ->with('success', 'Terima kasih, pesan Anda berhasil dikirim!');
+            ->with(
+                'success',
+                'Terima kasih, pesan Anda berhasil dikirim!'
+            );
     }
 }

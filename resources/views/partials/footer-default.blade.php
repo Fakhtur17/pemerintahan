@@ -115,13 +115,13 @@
                             </li>
 
                             <li>
-                                <a href="{{ route('informasi-publik.informasi-berkala') }}">
+                                <a href="{{ route('informasi-publik.informasi-berkala.index') }}">
                                     Informasi Publik Berkala
                                 </a>
                             </li>
 
                             <li>
-                                <a href="{{ route('informasi-publik.informasi-dikecualikan') }}">
+                                <a href="{{ route('informasi-publik.informasi-dikecualikan.index') }}">
                                     Informasi Dikecualikan
                                 </a>
                             </li>

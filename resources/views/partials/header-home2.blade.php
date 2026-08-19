@@ -159,38 +159,38 @@
 
                                             <ul class="submenu">
                                                 <li>
-                                                    <a href="{{ route('informasi-publik.informasi-berkala') }}">
+                                                    <a href="{{ route('informasi-publik.informasi-berkala.index') }}">
                                                         Informasi Publik Yang Wajib Disediakan dan Diumumkan Secara Berkala
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route('informasi-publik.informasi-serta-merta') }}">
+                                                    <a href="{{ route('informasi-publik.informasi-serta-merta.index') }}">
                                                         Informasi Yang Wajib Diumumkan Secara Serta Merta
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route('informasi-publik.informasi-dikecualikan') }}">
+                                                    <a href="{{ route('informasi-publik.informasi-dikecualikan.index') }}">
                                                         Informasi Yang Dikecualikan
                                                     </a>
                                                 </li>
 
                                                 <li>
-                                                    <a href="{{ route('informasi-publik.informasi-setiap-saat') }}">
+                                                    <a href="{{ route('informasi-publik.informasi-tersedia-setiap-saat.index') }}">
                                                         Informasi Wajib Tersedia Setiap Saat
                                                     </a>
                                                 </li>
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="{{ route('pricing') }}">
+                                            <a href="{{ route('berita.index') }}">
                                                 Berita
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="{{ route('login') }}">
-                                                Login
+                                            <a href="{{ route('potensi-kecamatan.index') }}">
+                                                Potensi Kecamatan
                                             </a>
                                         </li>
                                         <li class="has-dropdown">
@@ -202,25 +202,34 @@
                             </div>
                         </div>
                         <a href="#0" class="search-trigger search-icon"><i class="fal fa-search"></i></a>
+                        {{-- LOGIN BUTTON --}}
                         <div class="header-button">
                             <div class="btn-wrapper">
-                                <a href="{{ route('contact.index') }}"> <span class="theme-btn"> Get Started
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                            viewBox="0 0 16 16" fill="none">
-                                            <g clip-path="url(#clip0_199_939)">
-                                                <path
-                                                    d="M11.6123 3.61183L10.8996 4.32455L14.0711 7.49604H0.000488281V8.50399H14.0711L10.8996 11.6754L11.6123 12.3882L16.0005 7.99998L11.6123 3.61183Z"
-                                                    fill="white" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_199_939">
-                                                    <rect width="16" height="16" fill="white"
-                                                        transform="translate(0.000488281)" />
-                                                </clipPath>
-                                            </defs>
+
+                                <a href="{{ route('login') }}">
+
+                                    <span class="theme-btn">
+
+                                        <i class="fas fa-sign-in-alt me-2"></i>
+                                        Login
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="16"
+                                            height="16"
+                                            viewBox="0 0 16 16"
+                                            fill="none">
+
+                                            <path
+                                                d="M11.6123 3.61183L10.8996 4.32455L14.0711 7.49604H0.000488281V8.50399H14.0711L10.8996 11.6754L11.6123 12.3882L16.0005 7.99998L11.6123 3.61183Z"
+                                                fill="white" />
+
                                         </svg>
+
                                     </span>
+
                                 </a>
+
                             </div>
                         </div>
                         <div class="header__hamburger d-block d-xl-none my-auto">

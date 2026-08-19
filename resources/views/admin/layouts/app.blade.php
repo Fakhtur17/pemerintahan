@@ -166,6 +166,20 @@
                         <i class="bi bi-newspaper"></i> Berita
                     </a>
                 </li>
+                {{-- Potensi Kecamatan --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.potensi-kecamatan.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.potensi-kecamatan.*') ? 'active' : '' }}">
+                        <i class="bi bi-tree"></i> Potensi Kecamatan
+                    </a>
+                </li>
+                {{-- Kontak --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
+                        <i class="bi bi-envelope"></i> Kontak
+                    </a>
+                </li>
 
             </ul>
         </div>
