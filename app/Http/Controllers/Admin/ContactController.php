@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ContactController extends Controller
 {
     /**
-     * Menampilkan daftar contact
+     * Daftar pengaturan kontak
      */
     public function index()
     {
@@ -19,7 +19,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Form tambah contact
+     * Form tambah
      */
     public function create()
     {
@@ -27,7 +27,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Menyimpan contact
+     * Simpan
      */
     public function store(Request $request)
     {
@@ -50,11 +50,11 @@ class ContactController extends Controller
 
         return redirect()
             ->route('admin.contact.index')
-            ->with('success', 'Contact berhasil ditambahkan.');
+            ->with('success', 'Data kontak berhasil ditambahkan.');
     }
 
     /**
-     * Form edit contact
+     * Form edit
      */
     public function edit(ContactSetting $contact)
     {
@@ -62,7 +62,7 @@ class ContactController extends Controller
     }
 
     /**
-     * Update contact
+     * Update
      */
     public function update(Request $request, ContactSetting $contact)
     {
@@ -85,11 +85,11 @@ class ContactController extends Controller
 
         return redirect()
             ->route('admin.contact.index')
-            ->with('success', 'Contact berhasil diperbarui.');
+            ->with('success', 'Data kontak berhasil diperbarui.');
     }
 
     /**
-     * Hapus contact
+     * Hapus
      */
     public function destroy(ContactSetting $contact)
     {
@@ -97,6 +97,6 @@ class ContactController extends Controller
 
         return redirect()
             ->route('admin.contact.index')
-            ->with('success', 'Contact berhasil dihapus.');
+            ->with('success', 'Data kontak berhasil dihapus.');
     }
 }

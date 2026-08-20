@@ -1,16 +1,19 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Contact')
-
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid py-4">
 
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    {{-- HEADER --}}
+    <div class="d-flex justify-content-between align-items-start mb-4">
 
         <div>
+            <div class="text-muted small mb-2">
+                Kontak
+            </div>
+
             <h4 class="fw-bold mb-1">
-                Contact
+                Pengaturan Kontak
             </h4>
 
             <p class="text-muted mb-0">
@@ -18,35 +21,46 @@
             </p>
         </div>
 
-        <a href="{{ route('admin.contact.create') }}"
+        <a
+            href="{{ route('admin.contact.create') }}"
             class="btn btn-primary">
 
-            <i class="bi bi-plus-lg me-1"></i>
-            Tambah Contact
+            <i class="fas fa-plus me-1"></i>
+            Tambah Kontak
 
         </a>
 
     </div>
 
 
+    {{-- ALERT SUCCESS --}}
     @if(session('success'))
 
-    <div class="alert alert-success">
+    <div class="alert alert-success alert-dismissible fade show">
+
         {{ session('success') }}
+
+        <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="alert">
+        </button>
+
     </div>
 
     @endif
 
 
+    {{-- TABLE --}}
     <div class="card border-0 shadow-sm">
 
-        <div class="card-body p-0">
+        <div class="card-body">
 
             <div class="table-responsive">
 
-                <table class="table table-hover align-middle mb-0">
+                <table class="table align-middle">
 
-                    <thead class="table-light">
+                    <thead>
 
                         <tr>
 
@@ -67,10 +81,10 @@
                             </th>
 
                             <th>
-                                Form
+                                Judul Form
                             </th>
 
-                            <th width="160">
+                            <th width="180">
                                 Aksi
                             </th>
 
@@ -89,47 +103,60 @@
                             </td>
 
                             <td>
-                                {{ $contact->alamat ?: '-' }}
+                                {{ $contact->alamat ?? '-' }}
                             </td>
 
                             <td>
-                                {{ $contact->email ?: '-' }}
+                                {{ $contact->email ?? '-' }}
                             </td>
 
                             <td>
-                                {{ $contact->telepon ?: '-' }}
+                                {{ $contact->telepon ?? '-' }}
                             </td>
 
                             <td>
-                                {{ $contact->form_judul ?: '-' }}
+                                {{ $contact->form_judul ?? '-' }}
                             </td>
 
                             <td>
 
-                                <div class="d-flex gap-1">
+                                <div class="d-flex gap-2">
 
+                                    {{-- EDIT --}}
                                     <a
-                                        href="{{ route('admin.contact.edit', $contact) }}"
+                                        href="{{ route(
+                                                'admin.contact.edit',
+                                                $contact
+                                            ) }}"
                                         class="btn btn-sm btn-warning">
 
-                                        <i class="bi bi-pencil"></i>
+                                        <i class="fas fa-edit"></i>
+                                        Edit
 
                                     </a>
 
 
+                                    {{-- DELETE --}}
                                     <form
-                                        action="{{ route('admin.contact.destroy', $contact) }}"
+                                        action="{{ route(
+                                                'admin.contact.destroy',
+                                                $contact
+                                            ) }}"
                                         method="POST"
-                                        onsubmit="return confirm('Yakin ingin menghapus contact ini?')">
+                                        onsubmit="return confirm(
+                                                'Yakin ingin menghapus data kontak ini?'
+                                            )">
 
                                         @csrf
+
                                         @method('DELETE')
 
                                         <button
                                             type="submit"
                                             class="btn btn-sm btn-danger">
 
-                                            <i class="bi bi-trash"></i>
+                                            <i class="fas fa-trash"></i>
+                                            Hapus
 
                                         </button>
 
@@ -145,10 +172,11 @@
 
                         <tr>
 
-                            <td colspan="6"
+                            <td
+                                colspan="6"
                                 class="text-center py-5 text-muted">
 
-                                Belum ada data contact.
+                                Belum ada pengaturan kontak.
 
                             </td>
 

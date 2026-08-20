@@ -69,26 +69,6 @@
 
     <div class="container">
 
-        {{-- HEADER --}}
-
-        <div class="text-center mb-4">
-
-            <span class="section-label">
-                EKSPLORASI
-            </span>
-
-            <h2 class="fw-bold mt-2">
-                Potensi Daerah
-            </h2>
-
-            <p class="text-muted">
-                Jelajahi berbagai potensi yang tersedia
-                di wilayah kecamatan.
-            </p>
-
-        </div>
-
-
         {{-- =====================================================
             FILTER
         ====================================================== --}}

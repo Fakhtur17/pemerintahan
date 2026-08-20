@@ -180,6 +180,7 @@ use App\Http\Controllers\Admin\Potensi\PotensiKecamatanController;
 
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
+
 /*
 |--------------------------------------------------------------------------
 | LOGIN
@@ -499,6 +500,12 @@ Route::prefix('potensi-kecamatan')
             'show'
         ])->name('show');
     });
+
+Route::get('/kontak', [ContactController::class, 'index'])
+    ->name('contact.index');
+
+Route::post('/kontak', [ContactController::class, 'store'])
+    ->name('contact.store');
 
 /*
 |--------------------------------------------------------------------------
@@ -1252,18 +1259,13 @@ Route::middleware('auth')
                     'destroy'
                 ])->name('destroy');
             });
-        Route::prefix('contact')
-            ->name('contact.')
-            ->group(function () {
 
-                Route::get('/', [
-                    AdminContactController::class,
-                    'index'
-                ])->name('index');
 
-                Route::put('/', [
-                    AdminContactController::class,
-                    'update'
-                ])->name('update');
-            });
+
+
+
+        Route::resource(
+            'contact',
+            AdminContactController::class
+        );
     });

@@ -1,32 +1,46 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Contact')
-
 @section('content')
 
-<div class="container-fluid">
+<div class="container-fluid py-4">
 
+    {{-- HEADER --}}
     <div class="mb-4">
 
+        <div class="text-muted small mb-2">
+            Kontak
+            <span class="mx-1">/</span>
+            Tambah
+        </div>
+
         <h4 class="fw-bold mb-1">
-            Tambah Contact
+            Tambah Pengaturan Kontak
         </h4>
 
         <p class="text-muted mb-0">
-            Tambahkan informasi kontak untuk halaman publik.
+            Tambahkan informasi kontak yang akan ditampilkan kepada masyarakat.
         </p>
 
     </div>
 
 
+    {{-- VALIDATION ERROR --}}
     @if($errors->any())
 
     <div class="alert alert-danger">
 
-        <ul class="mb-0">
+        <strong>
+            Terdapat kesalahan:
+        </strong>
+
+        <ul class="mb-0 mt-2">
 
             @foreach($errors->all() as $error)
-            <li>{{ $error }}</li>
+
+            <li>
+                {{ $error }}
+            </li>
+
             @endforeach
 
         </ul>
@@ -46,11 +60,11 @@
         {{-- INFORMASI KONTAK --}}
         <div class="card border-0 shadow-sm mb-4">
 
-            <div class="card-header bg-white">
+            <div class="card-header bg-white py-3">
 
-                <strong>
+                <h5 class="mb-0 fw-semibold">
                     Informasi Kontak
-                </strong>
+                </h5>
 
             </div>
 
@@ -58,9 +72,10 @@
 
                 <div class="row g-4">
 
-                    <div class="col-md-6">
+                    {{-- ALAMAT --}}
+                    <div class="col-md-12">
 
-                        <label class="form-label">
+                        <label class="form-label fw-semibold">
                             Alamat
                         </label>
 
@@ -69,14 +84,31 @@
                             name="alamat"
                             class="form-control"
                             value="{{ old('alamat') }}"
-                            placeholder="Masukkan alamat">
+                            placeholder="Contoh: Kantor PPID Kabupaten Brebes">
 
                     </div>
 
 
+                    {{-- DESKRIPSI ALAMAT --}}
+                    <div class="col-md-12">
+
+                        <label class="form-label fw-semibold">
+                            Deskripsi Alamat
+                        </label>
+
+                        <textarea
+                            name="deskripsi_alamat"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Keterangan tambahan mengenai alamat">{{ old('deskripsi_alamat') }}</textarea>
+
+                    </div>
+
+
+                    {{-- EMAIL --}}
                     <div class="col-md-6">
 
-                        <label class="form-label">
+                        <label class="form-label fw-semibold">
                             Email
                         </label>
 
@@ -90,9 +122,26 @@
                     </div>
 
 
+                    {{-- DESKRIPSI EMAIL --}}
                     <div class="col-md-6">
 
-                        <label class="form-label">
+                        <label class="form-label fw-semibold">
+                            Deskripsi Email
+                        </label>
+
+                        <textarea
+                            name="deskripsi_email"
+                            class="form-control"
+                            rows="3"
+                            placeholder="Keterangan email">{{ old('deskripsi_email') }}</textarea>
+
+                    </div>
+
+
+                    {{-- TELEPON --}}
+                    <div class="col-md-6">
+
+                        <label class="form-label fw-semibold">
                             Telepon
                         </label>
 
@@ -105,68 +154,18 @@
 
                     </div>
 
-                </div>
 
-            </div>
+                    {{-- DESKRIPSI TELEPON --}}
+                    <div class="col-md-6">
 
-        </div>
-
-
-        {{-- DESKRIPSI --}}
-        <div class="card border-0 shadow-sm mb-4">
-
-            <div class="card-header bg-white">
-
-                <strong>
-                    Deskripsi
-                </strong>
-
-            </div>
-
-            <div class="card-body">
-
-                <div class="row g-4">
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Deskripsi Alamat
-                        </label>
-
-                        <textarea
-                            name="deskripsi_alamat"
-                            class="form-control"
-                            rows="4"
-                            placeholder="Keterangan alamat">{{ old('deskripsi_alamat') }}</textarea>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
-                            Deskripsi Email
-                        </label>
-
-                        <textarea
-                            name="deskripsi_email"
-                            class="form-control"
-                            rows="4"
-                            placeholder="Keterangan email">{{ old('deskripsi_email') }}</textarea>
-
-                    </div>
-
-
-                    <div class="col-md-4">
-
-                        <label class="form-label">
+                        <label class="form-label fw-semibold">
                             Deskripsi Telepon
                         </label>
 
                         <textarea
                             name="deskripsi_telepon"
                             class="form-control"
-                            rows="4"
+                            rows="3"
                             placeholder="Keterangan telepon">{{ old('deskripsi_telepon') }}</textarea>
 
                     </div>
@@ -181,43 +180,43 @@
         {{-- GOOGLE MAPS --}}
         <div class="card border-0 shadow-sm mb-4">
 
-            <div class="card-header bg-white">
+            <div class="card-header bg-white py-3">
 
-                <strong>
-                    Google Maps
-                </strong>
+                <h5 class="mb-0 fw-semibold">
+                    Lokasi
+                </h5>
 
             </div>
 
             <div class="card-body">
 
-                <label class="form-label">
-                    Maps Embed URL
+                <label class="form-label fw-semibold">
+                    Google Maps Embed URL
                 </label>
 
                 <textarea
                     name="maps_embed"
                     class="form-control"
                     rows="4"
-                    placeholder="Masukkan URL src dari Google Maps Embed">{{ old('maps_embed') }}</textarea>
+                    placeholder="Masukkan URL Google Maps Embed">{{ old('maps_embed') }}</textarea>
 
-                <small class="text-muted">
-                    Masukkan URL yang ada di bagian <code>src</code> iframe Google Maps.
-                </small>
+                <div class="form-text">
+                    Masukkan URL pada atribut <code>src</code> dari Google Maps Embed.
+                </div>
 
             </div>
 
         </div>
 
 
-        {{-- FORM --}}
+        {{-- FORM PUBLIK --}}
         <div class="card border-0 shadow-sm mb-4">
 
-            <div class="card-header bg-white">
+            <div class="card-header bg-white py-3">
 
-                <strong>
-                    Form Kontak
-                </strong>
+                <h5 class="mb-0 fw-semibold">
+                    Form Kontak Publik
+                </h5>
 
             </div>
 
@@ -225,7 +224,7 @@
 
                 <div class="mb-3">
 
-                    <label class="form-label">
+                    <label class="form-label fw-semibold">
                         Judul Form
                     </label>
 
@@ -234,14 +233,14 @@
                         name="form_judul"
                         class="form-control"
                         value="{{ old('form_judul') }}"
-                        placeholder="Hubungi Kami">
+                        placeholder="Contoh: Hubungi Kami">
 
                 </div>
 
 
                 <div>
 
-                    <label class="form-label">
+                    <label class="form-label fw-semibold">
                         Deskripsi Form
                     </label>
 
@@ -249,7 +248,7 @@
                         name="form_deskripsi"
                         class="form-control"
                         rows="4"
-                        placeholder="Silakan sampaikan pertanyaan Anda">{{ old('form_deskripsi') }}</textarea>
+                        placeholder="Deskripsi yang ditampilkan di atas form kontak">{{ old('form_deskripsi') }}</textarea>
 
                 </div>
 
@@ -258,22 +257,22 @@
         </div>
 
 
-        <div class="d-flex justify-content-between">
+        {{-- BUTTON --}}
+        <div class="d-flex justify-content-end gap-2">
 
             <a
                 href="{{ route('admin.contact.index') }}"
                 class="btn btn-light border">
 
-                Kembali
+                Batal
 
             </a>
-
 
             <button
                 type="submit"
                 class="btn btn-primary">
 
-                <i class="bi bi-save me-1"></i>
+                <i class="fas fa-save me-1"></i>
                 Simpan
 
             </button>

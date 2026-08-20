@@ -9,6 +9,7 @@
 
 @section('content')
 
+
 <!-- Breadcumb Section S T A R T -->
 <div class="breadcumb-section fix">
 
@@ -68,7 +69,9 @@
             <div class="row gy-5">
 
 
-                {{-- ALAMAT --}}
+                {{-- =====================================================
+                    ALAMAT
+                ====================================================== --}}
                 <div class="col-xl-4 col-md-6">
 
                     <div class="contact-info-box style1">
@@ -77,29 +80,52 @@
 
                             <div class="icon">
 
-                                {{-- SVG ALAMAT TETAP DARI TEMPLATE KAMU --}}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="80"
                                     height="80"
                                     viewBox="0 0 80 80"
                                     fill="none">
+
                                     <path
                                         d="M49.5876 58.8191C59.9803 45.4417 66.4751 38.4659 66.5628 26.7622C66.6728 12.0367 54.7225 0 39.9981 0C25.4456 0 13.549 11.7856 13.4384 26.3638C13.349 38.3848 19.9645 45.3511 30.4289 58.8169C20.0187 60.3725 13.4384 64.2814 13.4384 69.0625C13.4384 72.2652 16.3987 75.1391 21.7742 77.1547C26.6668 78.9894 33.1393 79.9998 40.0006 79.9998C46.8614 79.9998 53.3343 78.9894 58.227 77.1547C63.6025 75.1389 66.5628 72.265 66.5628 69.0623C66.5628 64.2839 59.9885 60.3759 49.5876 58.8191Z"
                                         fill="#7444FD" />
+
                                 </svg>
 
                             </div>
+
 
                             <div class="title">
                                 Alamat
                             </div>
 
+
+                            @if($contact?->alamat)
+
                             <a
                                 class="text"
                                 href="#">
-                                Kantor PPID Kabupaten Brebes
+
+                                {{ $contact->alamat }}
+
                             </a>
+
+                            @if($contact->deskripsi_alamat)
+
+                            <p class="text">
+                                {{ $contact->deskripsi_alamat }}
+                            </p>
+
+                            @endif
+
+                            @else
+
+                            <p class="text">
+                                Informasi alamat belum tersedia.
+                            </p>
+
+                            @endif
 
                         </div>
 
@@ -108,7 +134,9 @@
                 </div>
 
 
-                {{-- EMAIL --}}
+                {{-- =====================================================
+                    EMAIL
+                ====================================================== --}}
                 <div class="col-xl-4 col-md-6">
 
                     <div class="contact-info-box style1">
@@ -117,7 +145,6 @@
 
                             <div class="icon">
 
-                                {{-- SVG EMAIL TETAP --}}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="70"
@@ -133,17 +160,39 @@
 
                             </div>
 
+
                             <h3 class="title">
 
-                                <a href="mailto:ppid@brebeskab.go.id">
-                                    ppid@brebeskab.go.id
+                                @if($contact?->email)
+
+                                <a href="mailto:{{ $contact->email }}">
+                                    {{ $contact->email }}
                                 </a>
+
+                                @else
+
+                                <span>
+                                    Email belum tersedia
+                                </span>
+
+                                @endif
 
                             </h3>
 
+
+                            @if($contact?->deskripsi_email)
+
                             <p class="text">
-                                Email kami untuk informasi dan layanan PPID.
+                                {{ $contact->deskripsi_email }}
                             </p>
+
+                            @else
+
+                            <p class="text">
+                                Hubungi kami melalui email untuk informasi dan layanan PPID.
+                            </p>
+
+                            @endif
 
                         </div>
 
@@ -152,7 +201,9 @@
                 </div>
 
 
-                {{-- TELEPON --}}
+                {{-- =====================================================
+                    TELEPON
+                ====================================================== --}}
                 <div class="col-xl-4 col-md-6">
 
                     <div class="contact-info-box style1">
@@ -161,7 +212,6 @@
 
                             <div class="icon">
 
-                                {{-- SVG TELEPON TETAP --}}
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     width="70"
@@ -177,17 +227,39 @@
 
                             </div>
 
+
                             <h3 class="title">
 
-                                <a href="tel:+62283432123">
-                                    (0283) 432123
+                                @if($contact?->telepon)
+
+                                <a href="tel:{{ $contact->telepon }}">
+                                    {{ $contact->telepon }}
                                 </a>
 
+                                @else
+
+                                <span>
+                                    Telepon belum tersedia
+                                </span>
+
+                                @endif
+
                             </h3>
+
+
+                            @if($contact?->deskripsi_telepon)
+
+                            <p class="text">
+                                {{ $contact->deskripsi_telepon }}
+                            </p>
+
+                            @else
 
                             <p class="text">
                                 Hubungi kami pada jam pelayanan.
                             </p>
+
+                            @endif
 
                         </div>
 
@@ -215,57 +287,83 @@
             <div class="row gy-5 gx-60">
 
 
-                {{-- MAP --}}
+                {{-- =====================================================
+                    MAP
+                ====================================================== --}}
                 <div class="col-xl-6">
 
                     <div class="contact-map">
 
+                        @if($contact?->maps_embed)
+
                         <iframe
-                            src="GANTI_DENGAN_GOOGLE_MAPS_EMBED_PP​​ID"
+                            src="{{ $contact->maps_embed }}"
                             style="border:0;"
                             allowfullscreen=""
                             loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade">
                         </iframe>
 
+                        @else
+
+                        <div class="d-flex align-items-center justify-content-center h-100">
+
+                            <p class="text-muted mb-0">
+                                Lokasi belum tersedia.
+                            </p>
+
+                        </div>
+
+                        @endif
+
                     </div>
 
                 </div>
 
 
-                {{-- FORM --}}
+                {{-- =====================================================
+                    FORM
+                ====================================================== --}}
                 <div class="col-xl-6">
 
                     <div class="contact-form style1">
 
+
                         <h2 class="contact-title">
-                            Hubungi Kami
+
+                            {{ $contact?->form_judul ?? 'Hubungi Kami' }}
+
                         </h2>
 
+
                         <p class="desc">
-                            Silakan sampaikan pertanyaan, saran, atau
-                            informasi yang ingin Anda sampaikan kepada PPID.
+
+                            {{ $contact?->form_deskripsi
+                                ?? 'Silakan sampaikan pertanyaan, saran, atau informasi yang ingin Anda sampaikan kepada PPID.' }}
+
                         </p>
 
 
                         {{-- SUCCESS --}}
-                        @if (session('success'))
+                        @if(session('success'))
 
                         <div class="alert alert-success mb-4">
+
                             {{ session('success') }}
+
                         </div>
 
                         @endif
 
 
                         {{-- ERROR --}}
-                        @if ($errors->any())
+                        @if($errors->any())
 
                         <div class="alert alert-danger mb-4">
 
                             <ul class="mb-0">
 
-                                @foreach ($errors->all() as $error)
+                                @foreach($errors->all() as $error)
 
                                 <li>
                                     {{ $error }}
@@ -287,6 +385,7 @@
                             class="contact-form-items">
 
                             @csrf
+
 
                             <div class="row g-4">
 
@@ -320,10 +419,10 @@
 
                                         <input
                                             type="email"
-                                            name="email2"
-                                            id="email2"
+                                            name="email"
+                                            id="email"
                                             placeholder="Alamat Email"
-                                            value="{{ old('email2') }}"
+                                            value="{{ old('email') }}"
                                             required>
 
                                     </div>

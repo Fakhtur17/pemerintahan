@@ -7,7 +7,7 @@
                     <div class="header-left">
                         <div class="logo">
                             <a href="{{ route('home') }}" class="header-logo">
-                                <img src="{{ asset('assets/images/logo/logo.svg') }}" alt="logo-img">
+                                <img src="{{ asset('assets/images/logo/kec.png') }}" alt="logo-img">
                             </a>
                         </div>
                     </div>
@@ -17,84 +17,10 @@
                                 <nav id="mobile-menu">
                                     <ul>
                                         <li class="has-dropdown active menu-thumb">
-                                            <a href="#">
+                                            <a href="{{ route('home') }}">
                                                 Home
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
-                                            <ul class="submenu has-homemenu">
-                                                <li>
-                                                    <div class="homemenu-items">
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb">
-                                                                <img src="{{ asset('assets/images/header/home-1.png') }}"
-                                                                    alt="img">
-                                                                <div class="demo-button">
-                                                                    <a class="theme-btn" href="{{ route('home') }}">
-                                                                        Multi Page
-                                                                    </a>
-                                                                    <a class="theme-btn" href="{{ route('home.onepage') }}">
-                                                                        One Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 01
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/images/header/home-2.png') }}"
-                                                                    alt="img">
-                                                                <div class="demo-button">
-                                                                    <a class="theme-btn" href="{{ route('home2') }}">
-                                                                        Multi Page
-                                                                    </a>
-                                                                    <a class="theme-btn" href="{{ route('home2.onepage') }}">
-                                                                        One Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 02
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                        <div class="homemenu">
-                                                            <div class="homemenu-thumb mb-15">
-                                                                <img src="{{ asset('assets/images/header/home-3.png') }}"
-                                                                    alt="img">
-                                                                <div class="demo-button">
-                                                                    <a class="theme-btn" href="{{ route('home3') }}">
-                                                                        Multi Page
-                                                                    </a>
-                                                                    <a class="theme-btn" href="{{ route('home3.onepage') }}">
-                                                                        One Page
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="homemenu-content text-center">
-                                                                <h4 class="homemenu-title">
-                                                                    Home 03
-                                                                </h4>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown active d-xl-none">
-                                            <a href="{{ route('home') }}" class="border-none">
-                                                Home
-                                                <i class="fa-regular fa-plus"></i>
-                                            </a>
-                                            <ul class="submenu">
-                                                <li><a href="{{ route('home') }}">Home 01</a></li>
-                                                <li><a href="{{ route('home2') }}">Home 02</a></li>
-                                                <li><a href="{{ route('home3') }}">Home 03</a></li>
-                                            </ul>
                                         </li>
                                         <li class="has-dropdown">
                                             <a href="{{ route('profil.index') }}">
@@ -103,83 +29,101 @@
                                             </a>
 
                                             <ul class="submenu">
-                                                <li><a href="{{ route('profil.tentang-kabupaten') }}">Tentang Kabupaten Brebes</a></li>
-                                                <li><a href="{{ route('profil.visi-misi') }}">Visi dan Misi Kabupaten Brebes</a></li>
-                                                <li><a href="{{ route('profil.tupoksi-ppid') }}">Tupoksi PPID dan PPID Pelaksana</a></li>
-                                                <li><a href="{{ route('profil.profil-pimpinan') }}">Profil Pimpinan Badan Publik</a></li>
-                                                <li><a href="{{ route('profil.tentang-ppid') }}">Tentang PPID</a></li>
-                                                <li><a href="{{ route('profil.struktur-ppid') }}">Struktur PPID</a></li>
-                                                <li><a href="{{ route('profil.lhkpn') }}">LHKPN Pimpinan Badan Publik</a></li>
+                                                <li><a href="{{ route('profil.tentang-kabupaten') }}">Tentang Kecamatan Brebes</a></li>
+                                                <li><a href="{{ route('profil.visi-misi') }}">Visi dan Misi Kecamatan Brebes</a></li>
+                                                <li><a href="{{ route('profil.tupoksi-ppid') }}">Tupoksi Kecamatan Pelaksana</a></li>
+                                                <li><a href="{{ route('profil.profil-pimpinan') }}">Profil Pimpinan Kecamatan Brebes</a></li>
+                                                <li><a href="{{ route('profil.tentang-ppid') }}">Tentang Kecamatan Brebes</a></li>
+                                                <li><a href="{{ route('profil.struktur-ppid') }}">Struktur Kecamatan Brebes</a></li>
+                                                <li><a href="{{ route('profil.lhkpn') }}">LHKPN Pimpinan Kecamatan Brebes </a></li>
                                                 <li><a href="{{ route('profil.alamat-dinas') }}">Alamat Lengkap Dinas</a></li>
                                             </ul>
                                         </li>
                                         <li>
                                             <a href="{{ route('regulasi.index') }}">
-                                                Regulasi PPID
+                                                Regulasi Kecamatan
                                             </a>
                                         </li>
                                         <li class="has-dropdown">
-                                            <a href="{{ route('layanan.index') }}">
-                                                Layanan
+                                            <a href="#0">
+                                                PPID
                                                 <i class="fas fa-angle-down"></i>
                                             </a>
 
                                             <ul class="submenu">
-                                                <li>
-                                                    <a href="{{ route('layanan.sop-ppid') }}">
-                                                        SOP Aplikasi PPID
+
+                                                {{-- =====================================================
+            LAYANAN PPID
+        ====================================================== --}}
+                                                <li class="has-dropdown">
+                                                    <a href="#0">
+                                                        Layanan
+                                                        <i class="fas fa-angle-down"></i>
                                                     </a>
+
+                                                    <ul class="submenu">
+
+                                                        <li>
+                                                            <a href="{{ route('layanan.sop-ppid') }}">
+                                                                SOP Aplikasi PPID
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ route('layanan.alur-permohonan') }}">
+                                                                Alur Permohonan Informasi PPID
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ route('layanan.formulir-permohonan') }}">
+                                                                Formulir Permohonan Informasi Publik
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
                                                 </li>
 
-                                                <li>
-                                                    <a href="{{ route('layanan.alur-permohonan') }}">
-                                                        Alur Permohonan Informasi PPID
+
+                                                {{-- =====================================================
+            INFORMASI PUBLIK
+        ====================================================== --}}
+                                                <li class="has-dropdown">
+                                                    <a href="#0">
+                                                        Informasi Publik
+                                                        <i class="fas fa-angle-down"></i>
                                                     </a>
+
+                                                    <ul class="submenu">
+
+                                                        <li>
+                                                            <a href="{{ route('informasi-publik.informasi-berkala.index') }}">
+                                                                Informasi Publik Yang Wajib Disediakan dan
+                                                                Diumumkan Secara Berkala
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ route('informasi-publik.informasi-serta-merta.index') }}">
+                                                                Informasi Yang Wajib Diumumkan Secara Serta Merta
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ route('informasi-publik.informasi-dikecualikan.index') }}">
+                                                                Informasi Yang Dikecualikan
+                                                            </a>
+                                                        </li>
+
+                                                        <li>
+                                                            <a href="{{ route('informasi-publik.informasi-tersedia-setiap-saat.index') }}">
+                                                                Informasi Wajib Tersedia Setiap Saat
+                                                            </a>
+                                                        </li>
+
+                                                    </ul>
                                                 </li>
 
-                                                <li>
-                                                    <a href="{{ route('layanan.daftar-permohonan') }}">
-                                                        Daftar Permohonan Informasi Publik
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="{{ route('layanan.formulir-permohonan') }}">
-                                                        Formulir Permohonan Informasi Publik
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-dropdown">
-                                            <a href="{{ route('informasi-publik.index') }}">
-                                                Informasi Publik
-                                                <i class="fas fa-angle-down"></i>
-                                            </a>
-
-                                            <ul class="submenu">
-                                                <li>
-                                                    <a href="{{ route('informasi-publik.informasi-berkala.index') }}">
-                                                        Informasi Publik Yang Wajib Disediakan dan Diumumkan Secara Berkala
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="{{ route('informasi-publik.informasi-serta-merta.index') }}">
-                                                        Informasi Yang Wajib Diumumkan Secara Serta Merta
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="{{ route('informasi-publik.informasi-dikecualikan.index') }}">
-                                                        Informasi Yang Dikecualikan
-                                                    </a>
-                                                </li>
-
-                                                <li>
-                                                    <a href="{{ route('informasi-publik.informasi-tersedia-setiap-saat.index') }}">
-                                                        Informasi Wajib Tersedia Setiap Saat
-                                                    </a>
-                                                </li>
                                             </ul>
                                         </li>
                                         <li>
