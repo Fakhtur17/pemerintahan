@@ -11,20 +11,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\TeamController;
-use App\Http\Controllers\PricingController;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\FaqController;
 use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\RegulasiController;
 use App\Http\Controllers\BeritaController;
-
-
+use App\Http\Controllers\StrukturController;
+use App\Http\Controllers\FormPermohonanInformasiController;
 /*
 |--------------------------------------------------------------------------
 | PUBLIC - INFORMASI PUBLIK
@@ -180,7 +174,13 @@ use App\Http\Controllers\Admin\Potensi\PotensiKecamatanController;
 
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
+use App\Http\Controllers\Admin\PpidController as AdminPpidController;
 
+use App\Http\Controllers\PpidController;
+
+use App\Http\Controllers\Admin\StrukturController as AdminStrukturController;
+
+use App\Http\Controllers\Admin\PermohonanInformasiController;
 /*
 |--------------------------------------------------------------------------
 | LOGIN
@@ -507,6 +507,21 @@ Route::get('/kontak', [ContactController::class, 'index'])
 Route::post('/kontak', [ContactController::class, 'store'])
     ->name('contact.store');
 
+
+Route::get('/ppid', [PpidController::class, 'show'])->name('ppid.show');
+
+Route::get('/struktur', [StrukturController::class, 'index'])
+    ->name('struktur');
+
+Route::get(
+    '/form-permohonan-informasi',
+    [FormPermohonanInformasiController::class, 'index']
+)->name('form-permohonan-informasi');
+
+Route::post(
+    '/form-permohonan-informasi',
+    [FormPermohonanInformasiController::class, 'store']
+)->name('form-permohonan-informasi.store');
 /*
 |--------------------------------------------------------------------------
 | TEMPLATE
@@ -517,76 +532,6 @@ Route::get('/about', [
     AboutController::class,
     'index'
 ])->name('about');
-
-Route::get('/services', [
-    ServiceController::class,
-    'index'
-])->name('services.index');
-
-Route::get('/services/{service?}', [
-    ServiceController::class,
-    'show'
-])->name('services.show');
-
-Route::get('/projects', [
-    ProjectController::class,
-    'index'
-])->name('projects.index');
-
-Route::get('/projects-2', [
-    ProjectController::class,
-    'indexTwo'
-])->name('projects.index2');
-
-Route::get('/projects/{project?}', [
-    ProjectController::class,
-    'show'
-])->name('projects.show');
-
-Route::get('/team', [
-    TeamController::class,
-    'index'
-])->name('team.index');
-
-Route::get('/team/{member?}', [
-    TeamController::class,
-    'show'
-])->name('team.show');
-
-Route::get('/pricing', [
-    PricingController::class,
-    'index'
-])->name('pricing');
-
-Route::get('/blog', [
-    BlogController::class,
-    'index'
-])->name('blog.index');
-
-Route::get('/blog-standard', [
-    BlogController::class,
-    'standard'
-])->name('blog.standard');
-
-Route::get('/blog-left-sidebar', [
-    BlogController::class,
-    'leftSidebar'
-])->name('blog.leftSidebar');
-
-Route::get('/blog/{post?}', [
-    BlogController::class,
-    'show'
-])->name('blog.show');
-
-Route::get('/faq', [
-    FaqController::class,
-    'index'
-])->name('faq');
-
-Route::get('/contact', [
-    ContactController::class,
-    'index'
-])->name('contact.index');
 
 Route::post('/contact', [
     ContactController::class,
@@ -1268,4 +1213,52 @@ Route::middleware('auth')
             'contact',
             AdminContactController::class
         );
+
+        Route::resource(
+            'ppid',
+            AdminPpidController::class
+        )->except(['show']);
+
+        Route::resource('struktur', AdminStrukturController::class);
+
+        Route::get(
+            '/permohonan-informasi',
+            [PermohonanInformasiController::class, 'index']
+        )->name('permohonan-informasi.index');
+
+
+        Route::get(
+            '/permohonan-informasi/create',
+            [PermohonanInformasiController::class, 'create']
+        )->name('permohonan-informasi.create');
+
+
+        Route::post(
+            '/permohonan-informasi',
+            [PermohonanInformasiController::class, 'store']
+        )->name('permohonan-informasi.store');
+
+
+        Route::get(
+            '/permohonan-informasi/{permohonanInformasi}',
+            [PermohonanInformasiController::class, 'show']
+        )->name('permohonan-informasi.show');
+
+
+        Route::get(
+            '/permohonan-informasi/{permohonanInformasi}/edit',
+            [PermohonanInformasiController::class, 'edit']
+        )->name('permohonan-informasi.edit');
+
+
+        Route::put(
+            '/permohonan-informasi/{permohonanInformasi}',
+            [PermohonanInformasiController::class, 'update']
+        )->name('permohonan-informasi.update');
+
+
+        Route::delete(
+            '/permohonan-informasi/{permohonanInformasi}',
+            [PermohonanInformasiController::class, 'destroy']
+        )->name('permohonan-informasi.destroy');
     });

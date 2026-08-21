@@ -105,102 +105,260 @@
                         <i class="bi bi-journal-text"></i> Regulasi PPID
                     </a>
                 </li>
+                {{-- =========================================================
+    PPID
+========================================================= --}}
 
-                {{-- Layanan --}}
                 <li class="nav-item">
-                    <a href="#layananMenu" data-bs-toggle="collapse"
-                        class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.layanan.*') ? 'active' : '' }}">
-                        <span><i class="bi bi-gear"></i> Layanan</span>
+
+                    {{-- PPID --}}
+                    <a
+                        href="#ppidMenu"
+                        data-bs-toggle="collapse"
+                        class="nav-link d-flex justify-content-between align-items-center
+        {{ request()->routeIs('admin.layanan.*') || request()->routeIs('admin.informasi-publik.*') ? 'active' : '' }}">
+
+                        <span>
+                            <i class="bi bi-shield-check"></i>
+                            PPID
+                        </span>
+
                         <i class="bi bi-chevron-down"></i>
+
                     </a>
-                    <div class="collapse submenu {{ request()->routeIs('admin.layanan.*') ? 'show' : '' }}" id="layananMenu">
+
+
+                    <div
+                        class="collapse submenu
+        {{ request()->routeIs('admin.layanan.*') || request()->routeIs('admin.informasi-publik.*') ? 'show' : '' }}"
+                        id="ppidMenu">
+
                         <ul class="nav flex-column">
-                            <li><a href="{{ route('admin.layanan.sop-ppid.index') }}" class="nav-link">SOP Aplikasi PPID</a></li>
-                            <li><a href="{{ route('admin.layanan.alur-permohonan.index') }}" class="nav-link">Alur Permohonan</a></li>
-                            <li><a href="{{ route('admin.layanan.daftar-permohonan') }}" class="nav-link">Daftar Permohonan</a></li>
-                            <li><a href="{{ route('admin.layanan.formulir') }}" class="nav-link">Formulir Permohonan</a></li>
-                        </ul>
-                    </div>
+
+
+                            {{-- =====================================================
+                LAYANAN
+            ====================================================== --}}
+
+                            <li class="nav-item">
+
+                                <a
+                                    href="#layananMenu"
+                                    data-bs-toggle="collapse"
+                                    class="nav-link d-flex justify-content-between align-items-center">
+
+                                    <span>
+                                        <i class="bi bi-gear"></i>
+                                        Layanan
+                                    </span>
+
+                                    <i class="bi bi-chevron-down"></i>
+
+                                </a>
+                            <li class="nav-item"> <a href="{{ route('admin.ppid.index') }}" class="nav-link {{ request()->routeIs('admin.ppid.*') ? 'active' : '' }}"> <i class="bi bi-file-earmark-text"></i> PPID </a> </li>
+                            {{-- Struktur --}}
+                            <li class="nav-item">
+
+                                <a href="{{ route('admin.struktur.index') }}"
+                                    class="nav-link {{ request()->routeIs('admin.struktur.*') ? 'active' : '' }}">
+
+                                    <i class="bi bi-diagram-3"></i>
+                                    Struktur
+
+                                </a>
+
+                            </li>
+                            {{-- Form Permohonan Informasi --}}
+                            <li class="nav-item">
+
+                                <a href="{{ route('admin.permohonan-informasi.index') }}"
+                                    class="nav-link {{ request()->routeIs('admin.form-permohonan-informasi.*') ? 'active' : '' }}">
+
+                                    <i class="bi bi-file-earmark-text"></i>
+                                    Form Permohonan Informasi
+
+                                </a>
+
+                            </li>
+
+
+                            <div
+                                class="collapse submenu
+                    {{ request()->routeIs('admin.layanan.*') ? 'show' : '' }}"
+                                id="layananMenu">
+
+                                <ul class="nav flex-column">
+
+                                    <li>
+
+                                        <a
+                                            href="{{ route('admin.layanan.sop-ppid.index') }}"
+                                            class="nav-link">
+                                            SOP Aplikasi PPID
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a
+                                            href="{{ route('admin.layanan.alur-permohonan.index') }}"
+                                            class="nav-link">
+                                            Alur Permohonan
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a
+                                            href="{{ route('admin.layanan.daftar-permohonan') }}"
+                                            class="nav-link">
+                                            Daftar Permohonan
+                                        </a>
+
+                                    </li>
+
+                                    <li>
+
+                                        <a
+                                            href="{{ route('admin.layanan.formulir') }}"
+                                            class="nav-link">
+                                            Formulir Permohonan
+                                        </a>
+
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
                 </li>
 
-                {{-- Informasi Publik --}}
+
+
+                {{-- =====================================================
+                INFORMASI PUBLIK
+            ====================================================== --}}
+
                 <li class="nav-item">
-                    <a href="#infoPublikMenu" data-bs-toggle="collapse"
-                        class="nav-link d-flex justify-content-between align-items-center {{ request()->routeIs('admin.informasi-publik.*') ? 'active' : '' }}">
-                        <span><i class="bi bi-info-circle"></i> Informasi Publik</span>
+
+                    <a
+                        href="#infoPublikMenu"
+                        data-bs-toggle="collapse"
+                        class="nav-link d-flex justify-content-between align-items-center">
+
+                        <span>
+                            <i class="bi bi-info-circle"></i>
+                            Informasi Publik
+                        </span>
+
                         <i class="bi bi-chevron-down"></i>
+
                     </a>
-                    <div class="collapse submenu {{ request()->routeIs('admin.informasi-publik.*') ? 'show' : '' }}" id="infoPublikMenu">
+
+
+                    <div
+                        class="collapse submenu
+                    {{ request()->routeIs('admin.informasi-publik.*') ? 'show' : '' }}"
+                        id="infoPublikMenu">
+
                         <ul class="nav flex-column">
-                            <li><a href="{{ route('admin.informasi-publik.informasi-berkala.index') }}" class="nav-link">Informasi Berkala</a></li>
+
                             <li>
-                                <a href="{{ route('admin.informasi-publik.informasi-serta-merta.index') }}"
+
+                                <a
+                                    href="{{ route('admin.informasi-publik.informasi-berkala.index') }}"
+                                    class="nav-link">
+                                    Informasi Berkala
+                                </a>
+
+                            </li>
+
+                            <li>
+
+                                <a
+                                    href="{{ route('admin.informasi-publik.informasi-serta-merta.index') }}"
                                     class="nav-link">
                                     Serta Merta
                                 </a>
+
                             </li>
 
                             <li>
-                                <a href="{{ route('admin.informasi-publik.informasi-dikecualikan.index') }}"
+
+                                <a
+                                    href="{{ route('admin.informasi-publik.informasi-dikecualikan.index') }}"
                                     class="nav-link">
                                     Dikecualikan
                                 </a>
+
                             </li>
 
                             <li>
-                                <a href="{{ route(
-        'admin.informasi-publik.informasi-tersedia-setiap-saat.index'
-    ) }}"
+
+                                <a
+                                    href="{{ route('admin.informasi-publik.informasi-tersedia-setiap-saat.index') }}"
                                     class="nav-link">
                                     Setiap Saat
                                 </a>
+
                             </li>
+
                         </ul>
+
                     </div>
+
                 </li>
 
-                {{-- Berita --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.berita.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.berita.*') ? 'active' : '' }}">
-                        <i class="bi bi-newspaper"></i> Berita
-                    </a>
-                </li>
-                {{-- Potensi Kecamatan --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.potensi-kecamatan.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.potensi-kecamatan.*') ? 'active' : '' }}">
-                        <i class="bi bi-tree"></i> Potensi Kecamatan
-                    </a>
-                </li>
-                {{-- Kontak --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.contact.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
-                        <i class="bi bi-envelope"></i> Kontak
-                    </a>
-                </li>
 
             </ul>
+
         </div>
 
-        {{-- Content --}}
-        <div class="content">
-            <nav class="navbar navbar-dark bg-dark px-3">
-                <span class="navbar-brand mb-0 h1">@yield('title')</span>
+        </li>
+        {{-- Berita --}}
+        <li class="nav-item">
+            <a href="{{ route('admin.berita.index') }}"
+                class="nav-link {{ request()->routeIs('admin.berita.*') ? 'active' : '' }}">
+                <i class="bi bi-newspaper"></i> Berita
+            </a>
+        </li>
+        {{-- Potensi Kecamatan --}}
+        <li class="nav-item">
+            <a href="{{ route('admin.potensi-kecamatan.index') }}"
+                class="nav-link {{ request()->routeIs('admin.potensi-kecamatan.*') ? 'active' : '' }}">
+                <i class="bi bi-tree"></i> Potensi Kecamatan
+            </a>
+        </li>
+        {{-- Kontak --}}
+        <li class="nav-item">
+            <a href="{{ route('admin.contact.index') }}"
+                class="nav-link {{ request()->routeIs('admin.contact.*') ? 'active' : '' }}">
+                <i class="bi bi-envelope"></i> Kontak
+            </a>
+        </li>
 
-                <form action="{{ route('logout') }}" method="POST" class="mb-0">
-                    @csrf
-                    <button class="btn btn-danger btn-sm">
-                        Logout
-                    </button>
-                </form>
-            </nav>
+        </ul>
+    </div>
 
-            <div class="container-fluid mt-4">
-                @yield('content')
-            </div>
+    {{-- Content --}}
+    <div class="content">
+        <nav class="navbar navbar-dark bg-dark px-3">
+            <span class="navbar-brand mb-0 h1">@yield('title')</span>
+
+            <form action="{{ route('logout') }}" method="POST" class="mb-0">
+                @csrf
+                <button class="btn btn-danger btn-sm">
+                    Logout
+                </button>
+            </form>
+        </nav>
+
+        <div class="container-fluid mt-4">
+            @yield('content')
         </div>
+    </div>
 
     </div>
 

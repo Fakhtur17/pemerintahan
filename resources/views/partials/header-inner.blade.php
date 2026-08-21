@@ -45,6 +45,9 @@
                                                 Regulasi Kecamatan
                                             </a>
                                         </li>
+                                        {{-- =====================================================
+    PPID
+====================================================== --}}
                                         <li class="has-dropdown">
                                             <a href="#0">
                                                 PPID
@@ -53,9 +56,30 @@
 
                                             <ul class="submenu">
 
-                                                {{-- =====================================================
+                                                {{-- =================================================
+            SK PPID PELAKSANA
+        ================================================== --}}
+                                                <li>
+                                                    <a href="{{ route('ppid.show') }}">
+                                                        SK PPID Pelaksana
+                                                    </a>
+                                                </li>
+
+                                                <li>
+                                                    <a href="{{ route('struktur') }}">
+                                                        Struktur
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="{{ route('form-permohonan-informasi') }}">
+                                                        Form Permohonan Informasi
+                                                    </a>
+                                                </li>
+
+
+                                                {{-- =================================================
             LAYANAN PPID
-        ====================================================== --}}
+        ================================================== --}}
                                                 <li class="has-dropdown">
                                                     <a href="#0">
                                                         Layanan
@@ -75,6 +99,7 @@
                                                                 Alur Permohonan Informasi PPID
                                                             </a>
                                                         </li>
+
                                                         <li>
                                                             <a href="{{ route('layanan.formulir-permohonan') }}">
                                                                 Formulir Permohonan Informasi Publik
@@ -85,9 +110,9 @@
                                                 </li>
 
 
-                                                {{-- =====================================================
+                                                {{-- =================================================
             INFORMASI PUBLIK
-        ====================================================== --}}
+        ================================================== --}}
                                                 <li class="has-dropdown">
                                                     <a href="#0">
                                                         Informasi Publik
